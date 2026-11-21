@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>План фото карточки</title>
+<meta name="description" content="17 слайдов карточки SHURSHU в порядке, в котором их смотрит покупатель">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>/* Layout: одна спокойная колонка для чтения (~680px), широкие блоки только для таблицы и галереи */
+:root{
+  --bg:#faf7f2; --paper:#ffffff; --ink:#24211c; --soft:#6b6459; --hair:#ebe4d8;
+  --sand:#e9dcc4; --sand-deep:#c9b28a; --quartz:#1e88c7; --quartz-soft:#e3f1fa;
+  --yes:#2f7d4f; --yes-soft:#e3f2e8; --no:#c0492f; --no-soft:#fbe7e1; --mid:#a8741a; --mid-soft:#fbf0d9;
+  --display:'Unbounded',system-ui,sans-serif; --text:'Golos Text',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#191714; --paper:#221f1b; --ink:#efe9df; --soft:#a9a092; --hair:#353029;
+  --sand:#3b3326; --sand-deep:#8f7a55; --quartz:#5db6ea; --quartz-soft:#173040;
+  --yes:#7cc79a; --yes-soft:#1b3326; --no:#f08f76; --no-soft:#3b221b; --mid:#e2b25c; --mid-soft:#3a2f18; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#191714; --paper:#221f1b; --ink:#efe9df; --soft:#a9a092; --hair:#353029;
+  --sand:#3b3326; --sand-deep:#8f7a55; --quartz:#5db6ea; --quartz-soft:#173040;
+  --yes:#7cc79a; --yes-soft:#1b3326; --no:#f08f76; --no-soft:#3b221b; --mid:#e2b25c; --mid-soft:#3a2f18; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+h1,h2,h3{margin:0;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,7vw,46px);letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(21px,4.6vw,26px)}
+h3{font-size:19px;font-weight:700}
+ul,ol{margin:0;padding-left:1.2em}
+li{margin:.2em 0}
+.hero{background:linear-gradient(180deg,var(--sand) 0%,var(--bg) 100%);padding:48px 0 28px}
+.kicker{margin:0 0 10px;color:var(--soft);font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.lead{font-size:19px;color:var(--ink);margin:14px 0 22px;max-width:620px}
+.path{display:flex;flex-wrap:wrap;gap:8px}
+.step{display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 7px;border-radius:999px;background:var(--paper);border:1px solid var(--hair);color:var(--ink);text-decoration:none;font-size:15px;font-weight:500}
+.step span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--c);color:var(--paper);font-weight:700;font-size:13px}
+.step:hover{border-color:var(--c)}
+.intro{display:grid;gap:12px;margin:8px 0 36px}
+.card{background:var(--paper);border:1px solid var(--hair);border-radius:16px;padding:18px 20px}
+.card h3{margin-bottom:6px}.card p{margin:0}
+.card.first{display:flex;gap:14px;align-items:flex-start}
+.num{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--paper);font-family:var(--display);font-weight:700;font-size:17px}
+.block{margin:0 0 40px}
+.bh{border-left:4px solid var(--c);padding:2px 0 2px 14px;margin-bottom:16px}
+.bt{display:inline-block;font-size:13px;font-weight:700;color:var(--c);text-transform:uppercase;letter-spacing:.05em}
+.bh p{margin:4px 0 0;color:var(--soft);font-size:15px}
+.slide{background:var(--paper);border:1px solid var(--hair);border-radius:18px;padding:20px;margin-bottom:14px}
+.sh{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.slide .num{background:var(--cs);color:var(--c)}
+.meta{margin:2px 0 0;color:var(--soft);font-size:14px}
+.why{margin:0 0 14px;color:var(--soft)}
+.row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--hair)}
+.row p{margin:0}
+.lbl{font-size:13px;font-weight:700;color:var(--c);text-transform:uppercase;letter-spacing:.04em;padding-top:3px}
+.head{font-weight:700;font-size:18px}
+.note{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--ncs);border-left:3px solid var(--nc);font-size:15.5px}
+.note b{color:var(--nc)}
+.tw{overflow-x:auto;margin:10px 0 6px;border:1px solid var(--hair);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:480px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--hair);white-space:nowrap}
+th{background:var(--cs);font-weight:600;font-size:13.5px}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+.small{font-size:14.5px;color:var(--soft);margin:6px 0 0}
+.todo{background:var(--ink);color:var(--bg);border-radius:20px;padding:26px 22px;margin:8px 0 28px}
+.todo h2{margin-bottom:14px}
+.todo li{margin:.5em 0}
+.foot{color:var(--soft);font-size:14px;padding-bottom:40px}
+@media (max-width:560px){.row{grid-template-columns:1fr;gap:4px}.slide{padding:16px}.hero{padding-top:32px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<p class="kicker">SHURSHU · кварцевый песок для купания</p>
+<h1>План фото карточки</h1>
+<p class="lead">17 слайдов в том порядке, в котором их листает покупатель. Сначала снимаем страхи, потом показываем пользу, отвечаем «как пользоваться» и в конце даём доверие.</p>
+<nav class="path"><a class="step" href="#bA" style="--c:var(--quartz);--cs:var(--quartz-soft)"><span>А</span>Безопасность и качество</a><a class="step" href="#bB" style="--c:var(--yes);--cs:var(--yes-soft)"><span>Б</span>Зачем и что даёт</a><a class="step" href="#bC" style="--c:var(--mid);--cs:var(--mid-soft)"><span>В</span>Как пользоваться</a><a class="step" href="#bD" style="--c:var(--sand-deep);--cs:var(--sand)"><span>Г</span>Упаковка</a><a class="step" href="#bE" style="--c:var(--no);--cs:var(--no-soft)"><span>Д</span>Доверие</a></nav>
+</div></header>
+<main class="wrap">
+<section class="intro">
+<div class="card"><h3>Почему такой порядок</h3><p>Покупатель чаще всего уходит после 5–7-го фото. Поэтому в начале — пыль, чистота и безопасность: это главные страхи. Отзывы, вопросы и сертификаты — в конце, их смотрят те, кто уже почти решил.</p></div>
+<div class="card"><h3>Правила для всех слайдов</h3><ul><li>Заголовок до 5 слов</li><li>Не больше 3–4 коротких пунктов</li><li>Крупный шрифт — читается с телефона</li><li>Одна мысль на слайд</li><li>Только то, что можно подтвердить фото, видео или документом</li></ul></div>
+<div class="card first"><span class="num">1</span><div><h3>Главное фото</h3><p>Остаётся первым. Объединили идеи 9 и 11 в один слайд — поэтому всего 17 фото.</p></div></div>
+</section>
+<section class="block" id="bA" style="--c:var(--quartz);--cs:var(--quartz-soft)"><div class="bh"><span class="bt">Блок А</span><h2>Безопасность и качество</h2><p>Снимаем главные страхи · слайды 2–5</p></div><article class="slide" id="s2" style="--c:var(--quartz);--cs:var(--quartz-soft)">
+<div class="sh"><span class="num">2</span><div><h3>Не пылит</h3><p class="meta">Безопасность и качество · ваша идея №10</p></div></div>
+<p class="why">Самый сильный страх: пыль в глаза и лёгкие, пыль по всей комнате. Конкуренты про пыль почти не пишут — это свободная ниша.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Не пылит» или «Минимум пыли»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Бережёт глаза и дыхание питомца</li><li>Не оседает на мебели</li><li>Мелкая пыль удалена при промывке</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Две купалки, в каждую сыплют песок с одной высоты: слева «обычный» с облаком пыли, справа наш — без облака. Лучше короткое видео и кадр из него. Названия конкурентов не показывать.</p></div>
+<div class="note" style="--nc:var(--mid);--ncs:var(--mid-soft)"><b>Проверить.</b> Снимите тест на тёмном фоне. Если пыль всё-таки видна — пишем «Минимум пыли», а не «Не пылит», иначе будут плохие отзывы.</div>
+</article>
+<article class="slide" id="s3" style="--c:var(--quartz);--cs:var(--quartz-soft)">
+<div class="sh"><span class="num">3</span><div><h3>Чистота песка</h3><p class="meta">Безопасность и качество · ваша идея №16</p></div></div>
+<p class="why">Отвечает на «а вдруг там бактерии, клещи, грязь, чем он лучше песка с улицы».</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Промыт и прокалён»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Три шага очистки иконками: промывка → прокаливание → просеивание</li><li>Без глины, органики и добавок</li><li>Более 99% кварца (SiO₂) — цифра из сертификата поставщика</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Стакан воды, в него ложка песка — вода остаётся прозрачной. Сейчас на последнем фото карточки видео с чашкой, и вода там мутная: переснять или убрать.</p></div>
+<div class="note" style="--nc:var(--mid);--ncs:var(--mid-soft)"><b>Проверить.</b> Писать только те шаги очистки, которые реально есть у поставщика.</div>
+</article>
+<article class="slide" id="s4" style="--c:var(--quartz);--cs:var(--quartz-soft)">
+<div class="sh"><span class="num">4</span><div><h3>Фото с микроскопа</h3><p class="meta">Безопасность и качество · ваша идея №5</p></div></div>
+<p class="why">Сейчас два фото микроскопа без пояснения — непонятно, что на них хорошего. Боль: «кварц острый, поцарапает глаза и шкурку».</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Округлые зёрна под микроскопом»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Зёрна гладкие и окатанные — не царапают глаза, кожу и лапы</li><li>Одинаковый размер 0,1–0,3 мм</li><li>Не застревают в шерсти</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Один круг микроскопа со стрелками-подписями «округлая форма» и «без острых краёв», рядом линейка масштаба. Два нынешних фото свести в одно.</p></div>
+</article>
+<article class="slide" id="s5" style="--c:var(--quartz);--cs:var(--quartz-soft)">
+<div class="sh"><span class="num">5</span><div><h3>Гипоаллергенный и без запаха</h3><p class="meta">Безопасность и качество · ваша идея №9 + 11</p></div></div>
+<p class="why">Снимает страх за питомца и за семью: аллергия у ребёнка, запах в комнате.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Без запаха и аллергии»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Без ароматизаторов и красителей</li><li>Природный кварц</li><li>Подходит для дома с детьми</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Ребёнок или взрослый рядом с шиншиллой в купалке, светлая чистая комната, 2–3 иконки: «0 ароматизаторов», «0 красителей».</p></div>
+<div class="note" style="--nc:var(--no);--ncs:var(--no-soft)"><b>Осторожно.</b> Слово «гипоаллергенный» подкрепить составом из сертификата, а не оставлять голым обещанием.</div>
+</article></section><section class="block" id="bB" style="--c:var(--yes);--cs:var(--yes-soft)"><div class="bh"><span class="bt">Блок Б</span><h2>Зачем и что даёт</h2><p>Показываем пользу · слайды 6–8</p></div><article class="slide" id="s6" style="--c:var(--yes);--cs:var(--yes-soft)">
+<div class="sh"><span class="num">6</span><div><h3>Почему грызунам нужен песок</h3><p class="meta">Зачем и что даёт · ваша идея №1</p></div></div>
+<p class="why">Часть покупателей — новички: они не знают, что шиншиллу нельзя купать в воде.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Почему не вода, а песок»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Густая шерсть плохо сохнет — вода опасна переохлаждением и грибком</li><li>В природе они чистятся в вулканической пыли и песке</li><li>Песок впитывает жир и влагу с шерсти</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Схема «вода ✖ / песок ✔» с двумя шиншиллами или природная среда (горы Анды).</p></div>
+</article>
+<article class="slide" id="s7" style="--c:var(--yes);--cs:var(--yes-soft)">
+<div class="sh"><span class="num">7</span><div><h3>Действие на грызуна: до и после</h3><p class="meta">Зачем и что даёт · ваша идея №6</p></div></div>
+<p class="why">Наглядно показывает результат. Текущий слайд хороший, его можно оставить.</p>
+<div class="row"><span class="lbl">Картинка</span><p>Если есть реальные фото одной шиншиллы до и после (свои или от покупателя) — они сильнее сгенерированных картинок.</p></div>
+</article>
+<article class="slide" id="s8" style="--c:var(--yes);--cs:var(--yes-soft)">
+<div class="sh"><span class="num">8</span><div><h3>Результаты купания</h3><p class="meta">Зачем и что даёт · ваша идея №7</p></div></div>
+<p class="why">Закрепляет пользу простыми словами.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Что даёт купание»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Шерсть пушистая и не скатывается</li><li>Уходит жирный блеск и свалявшиеся волоски</li><li>Питомец активен и доволен — купание для него игра</li></ul></div>
+<div class="note" style="--nc:var(--no);--ncs:var(--no-soft)"><b>Осторожно.</b> На нынешних слайдах есть медицинские обещания: «противовоспалительное действие», «снимает стресс». Подтвердить их нечем, Ozon может придраться. Заменить на «чистая кожа и шерсть» и «любимое занятие питомца».</div>
+</article></section><section class="block" id="bC" style="--c:var(--mid);--cs:var(--mid-soft)"><div class="bh"><span class="bt">Блок В</span><h2>Как пользоваться</h2><p>Убираем вопросы · слайды 9–11</p></div><article class="slide" id="s9" style="--c:var(--mid);--cs:var(--mid-soft)">
+<div class="sh"><span class="num">9</span><div><h3>Экономичный расход</h3><p class="meta">Как пользоваться · ваша идея №14</p></div></div>
+<p class="why">Отвечает на «дорого или нет» и подталкивает к большей фасовке.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«На сколько хватит»</p></div>
+<div class="row"><span class="lbl">Картинка</span><p>Три карточки (хомяк / дегу / шиншилла) с рисунком купалки и её размером. Цифры — в таблице ниже.</p></div>
+<div class="tw"><table>
+<thead><tr><th>Питомец</th><th>Купалка</th><th>Засыпка</th><th>0,8 кг</th><th>3,2 кг</th><th>8 кг</th></tr></thead>
+<tbody>
+<tr><td>Хомяк, джунгарик</td><td>~12×8 см</td><td>~0,25 кг</td><td>~3 нед.</td><td>~3 мес.</td><td>~8 мес.</td></tr>
+<tr><td>Дегу, песчанка</td><td>~20×15 см</td><td>~0,5 кг</td><td>~1,5 нед.</td><td>~6 нед.</td><td>~4 мес.</td></tr>
+<tr><td>Шиншилла</td><td>~25×20 см</td><td>~1 кг</td><td>&lt; 1 нед.</td><td>~3 нед.</td><td>~2 мес.</td></tr>
+</tbody></table></div>
+<p class="small">Слой 2 см, замена раз в неделю. Вывод для слайда: 0,8 кг — для хомяка или на пробу, шиншилле выгоднее 3,2 и 8 кг. Если песок просеивать через сито, хватит дольше.</p>
+<div class="note" style="--nc:var(--mid);--ncs:var(--mid-soft)"><b>Проверить.</b> Цифры примерные: насыпьте песок слоем 2 см в настоящие купалки и взвесьте.</div>
+</article>
+<article class="slide" id="s10" style="--c:var(--mid);--cs:var(--mid-soft)">
+<div class="sh"><span class="num">10</span><div><h3>Способ применения</h3><p class="meta">Как пользоваться · ваша идея №2</p></div></div>
+<p class="why">Текущий слайд хороший, но текста много — с телефона читать трудно.</p>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Насыпать слой 2–4 см</li><li>Поставить на 20–30 минут</li><li>Убрать купалку</li><li>Менять песок раз в неделю</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Четыре шага крупно, отдельной плашкой — «2–3 раза в неделю».</p></div>
+<div class="note" style="--nc:var(--mid);--ncs:var(--mid-soft)"><b>Проверить.</b> Сейчас написано «дайте 30–40 мин». Многие советуют меньше, чтобы не пересушить кожу. Выбрать одну цифру и писать её везде одинаково.</div>
+</article>
+<article class="slide" id="s11" style="--c:var(--mid);--cs:var(--mid-soft)">
+<div class="sh"><span class="num">11</span><div><h3>Кому можно тальк, а кому нет</h3><p class="meta">Как пользоваться · ваша идея №13</p></div></div>
+<p class="why">Покупатель видит «тальк» и не понимает, нужен ли он его питомцу и не вреден ли.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Тальк: кому и зачем»</p></div>
+<div class="row"><span class="lbl">Картинка</span><p>Две колонки с фото зверей: «можно добавлять» и «лучше без талька». Плюс правило: один пакетик на купалку, перемешать с песком.</p></div>
+<div class="note" style="--nc:var(--no);--ncs:var(--no-soft)"><b>Осторожно.</b> Распределение по видам сверить с ветеринаром до печати. Внизу приписка «если сомневаетесь — спросите ветеринара».</div>
+<div class="note" style="--nc:var(--no);--ncs:var(--no-soft)"><b>Осторожно.</b> На главном фото 0,8 кг написано «Тальк в комплекте». Если тальк кладётся не всегда — убрать надпись.</div>
+</article></section><section class="block" id="bD" style="--c:var(--sand-deep);--cs:var(--sand)"><div class="bh"><span class="bt">Блок Г</span><h2>Упаковка</h2><p>Продаём бутылку · слайды 12–14</p></div><article class="slide" id="s12" style="--c:var(--sand-deep);--cs:var(--sand)">
+<div class="sh"><span class="num">12</span><div><h3>Удобная упаковка</h3><p class="meta">Упаковка · ваша идея №3</p></div></div>
+<p class="why">Бутылка — ваше отличие от конкурентов в пакетах, но на фото она никак не продаётся.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Удобная бутылка»</p></div>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Не рвётся и не рассыпается при доставке</li><li>Удобно сыпать прямо в купалку, без совка</li><li>Плотная крышка — песок не отсыреет</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Рука сыплет песок из бутылки в купалку; рядом порванный пакет и подпись «а так бывает с пакетами». Для 8 кг — свой вариант про прочный мешок.</p></div>
+</article>
+<article class="slide" id="s13" style="--c:var(--sand-deep);--cs:var(--sand)">
+<div class="sh"><span class="num">13</span><div><h3>Размеры бутылок в сравнении</h3><p class="meta">Упаковка · ваша идея №17</p></div></div>
+<p class="why">По фото непонятен реальный размер, люди боятся «придёт маленькая». Заодно видно, что есть фасовки крупнее.</p>
+<div class="row"><span class="lbl">Картинка</span><p>0,8 кг, 3,2 кг и мешок 8 кг рядом, под каждым высота в см и «хватит на …». Для масштаба — рука, кружка или шиншилла. Слайд один для всех трёх карточек, текущая фасовка выделена рамкой.</p></div>
+</article>
+<article class="slide" id="s14" style="--c:var(--sand-deep);--cs:var(--sand)">
+<div class="sh"><span class="num">14</span><div><h3>Правильное хранение</h3><p class="meta">Упаковка · ваша идея №4</p></div></div>
+<p class="why">Небольшая забота, которая показывает экспертность. На покупку влияет слабо — поэтому ближе к концу, можно объединить со слайдом 12.</p>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Хранить в сухом месте с закрытой крышкой</li><li>Влажный песок не чистит шерсть</li><li>Срок годности не ограничен (если так по документам)</li></ul></div>
+</article></section><section class="block" id="bE" style="--c:var(--no);--cs:var(--no-soft)"><div class="bh"><span class="bt">Блок Д</span><h2>Доверие</h2><p>Закрываем сомнения · слайды 15–17</p></div><article class="slide" id="s15" style="--c:var(--no);--cs:var(--no-soft)">
+<div class="sh"><span class="num">15</span><div><h3>Что рассказывают покупатели</h3><p class="meta">Доверие · ваша идея №15</p></div></div>
+<p class="why">Чужим словам верят больше, чем словам продавца.</p>
+<div class="row"><span class="lbl">Заголовок</span><p class="head">«Что говорят покупатели» + рейтинг крупно</p></div>
+<div class="row"><span class="lbl">Картинка</span><p>3–4 настоящих отзыва с Ozon короткими цитатами и фото питомцев. Выбирать те, что закрывают страхи: «не пылит», «шиншилла в восторге», «бутылка удобная».</p></div>
+<div class="note" style="--nc:var(--no);--ncs:var(--no-soft)"><b>Осторожно.</b> Только реальные отзывы, имя без фамилии. Выдуманные отзывы — нарушение правил Ozon.</div>
+<div class="note" style="--nc:var(--yes);--ncs:var(--yes-soft)"><b>Совет.</b> Вкладыш в бутылку «покажите нам своего питомца» — без просьбы о пяти звёздах и без награды за отзыв.</div>
+</article>
+<article class="slide" id="s16" style="--c:var(--no);--cs:var(--no-soft)">
+<div class="sh"><span class="num">16</span><div><h3>Частые вопросы</h3><p class="meta">Доверие · ваша идея №12</p></div></div>
+<p class="why">Собирает в одном месте оставшиеся сомнения.</p>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Можно ли использовать как туалет?</li><li>Чем отличается от речного и вулканического песка?</li><li>Подходит ли детёнышам?</li><li>Как часто менять песок?</li><li>Что делать, если питомец ест песок?</li></ul></div>
+<div class="note" style="--nc:var(--yes);--ncs:var(--yes-soft)"><b>Совет.</b> Взять реальные вопросы из раздела «Вопросы» ваших карточек и карточек конкурентов.</div>
+</article>
+<article class="slide" id="s17" style="--c:var(--no);--cs:var(--no-soft)">
+<div class="sh"><span class="num">17</span><div><h3>Сертификаты — один слайд</h3><p class="meta">Доверие · ваша идея №8</p></div></div>
+<p class="why">Сейчас сертификаты занимают три слайда, а покупателю достаточно знать, что документы есть.</p>
+<div class="row"><span class="lbl">На слайде</span><ul><li>Санитарное заключение — безопасен</li><li>Сертификат соответствия ГОСТ</li><li>Анализ состава: 99% кварца, радиационно безопасен</li></ul></div>
+<div class="row"><span class="lbl">Картинка</span><p>Три документа веером, под каждым одна строка простыми словами. Освободившиеся два места отдать слайдам 2 и 9.</p></div>
+<div class="note" style="--nc:var(--mid);--ncs:var(--mid-soft)"><b>Проверить.</b> Проверить срок действия сертификата: истёкший документ на фото вредит доверию.</div>
+</article></section>
+<section class="todo">
+<h2>Что сделать сначала</h2>
+<ol>
+<li>Снять два коротких видео: песок сыплется на тёмном фоне (пыль) и ложка песка в стакане воды (чистота).</li>
+<li>Взвесить песок слоем 2 см в трёх настоящих купалках: хомяк, дегу, шиншилла.</li>
+<li>Выбрать 3–4 реальных отзыва с фото.</li>
+<li>Решить с тальком: кладём всегда или убираем надпись с главного фото.</li>
+<li>Убрать медицинские обещания («противовоспалительное», «снимает стресс»).</li>
+<li>После замены фото сравнить конверсию карточки за 7 дней до и после. Начать с одной карточки (0,8 кг).</li>
+</ol>
+</section>
+</main>
+<footer class="wrap foot">SHURSHU · план слайдов · ноябрь 2026</footer>
+</body>
+</html>
