@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — оформление заказа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Оформление заказа для сайта 8 «Сферы»: два столбца, слева форма по шагам, справа итог */
+:root{--bg:#f7f5f0;--card:#fff;--ink:#16140f;--muted:#6f6a60;--acc:#16140f;--acc2:#16140f;--line:#e7e2d8;--soft:#f3efe7;--r:26px;--br:999px;
+--head:"Geologica",system-ui,-apple-system,"Segoe UI",sans-serif;--body:"Geologica",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:16px/1.5 var(--body);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px}
+.logo{font-family:var(--head);font-weight:800;font-size:22px;text-decoration:none}
+.back{font-size:15px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+.fill{background:#ffe58a;color:#3b2f00;border-radius:4px;padding:0 4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 24px;border:0;border-radius:var(--br);background:var(--acc);color:#fff;font:700 16px var(--body);text-decoration:none;cursor:pointer}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+
+h1{font-size:clamp(30px,4vw,46px);margin:10px 0 6px}
+.lead{color:var(--muted);max-width:40em}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:22px;align-items:start;margin:26px 0 60px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-bottom:16px}
+.box h2{font-size:20px;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.box h2 i{font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:15px;flex:none}
+.it{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.it:first-of-type{border-top:0}
+.it img{width:64px;height:64px;object-fit:cover;border-radius:12px}
+.it b{display:block}
+.it small{color:var(--muted)}
+.it .pr{font-weight:700;white-space:nowrap}
+.it .pr s{color:var(--muted);font-weight:400;margin-right:4px}
+.qty{display:flex;align-items:center;gap:4px;margin-top:6px;justify-content:flex-end}
+.qty button{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--soft);color:var(--ink);font-size:18px;cursor:pointer}
+.qty output{min-width:26px;text-align:center;font-weight:700}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;display:block}
+.opt input{position:absolute;opacity:0}
+.opt b{display:block}
+.opt small{color:var(--muted)}
+.opt:has(input:checked){border-color:var(--acc);background:var(--soft)}
+.opt:has(input:focus-visible){outline:3px solid var(--acc);outline-offset:2px}
+label.f{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+label.f small{font-weight:400;color:var(--muted)}
+input.t,textarea{width:100%;font:16px/1.3 var(--body);color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+input.t:focus,textarea:focus{outline:none;border-color:var(--acc)}
+.cityhint{font-size:14px;color:var(--muted);margin-top:6px;min-height:21px}
+.cityhint b{color:var(--ink)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin-top:14px}
+.agree input{margin-top:3px;width:18px;height:18px;accent-color:var(--acc);flex:none}
+aside{position:sticky;top:16px}
+.sum{background:var(--acc2);color:#fff;border-radius:var(--r);padding:22px}
+
+.sum h2{font-size:22px;margin-bottom:12px}
+.lines{font-size:15px;opacity:.9;min-height:24px}
+.row{display:flex;justify-content:space-between;gap:10px;font-size:15px;padding-top:8px}
+.total{border-top:1px solid rgba(255,255,255,.2);margin-top:12px;padding-top:12px;display:flex;justify-content:space-between;align-items:baseline}
+.total b{font:800 34px var(--head)}
+.save{font-size:14px;color:#9fe3b4;margin-top:4px;min-height:20px}
+.sum .btn{width:100%;margin-top:16px;background:#fff;color:var(--acc2)}
+.err{color:#ffb4a8;font-size:14px;margin-top:8px;min-height:20px}
+.soon{font-size:13px;opacity:.85;margin-top:10px}
+.after{margin-top:16px;font-size:14px;color:var(--muted)}
+.after ol{padding-left:1.2em;margin-top:6px}
+.after li{margin:4px 0}
+.help{margin-top:12px;font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:22px 40px;font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}aside{position:static}}
+@media (max-width:480px){.opts{grid-template-columns:1fr}.it{grid-template-columns:52px minmax(0,1fr)}.it img{width:52px;height:52px}.it .side{grid-column:2}.qty{justify-content:flex-start}}
+</style></head><body>
+<div class="wrap">
+<header class="top"><a class="logo" href="s8.html">Шуршу</a><a class="back" href="s8.html#tovary">← Вернуться к товарам</a></header>
+<h1>Оформление заказа</h1>
+<p class="lead">Четыре коротких шага. После оплаты мы оформим отправку через Ozon, и заказ появится в вашем приложении Ozon по номеру телефона.</p>
+<form id="form" class="grid" novalidate>
+<div>
+ <section class="box"><h2><i>1</i>Что везём</h2>
+  <div class="it" data-k="32" data-name="Бутылка 3,2 кг" data-price="389" data-oz="440"><img src="img/bottle.jpg" alt=""><div><b>Бутылка 3,2 кг</b><small>тальк в подарок</small></div><div class="side"><div class="pr">389 ₽</div><div class="qty"><button type="button" data-d="-1" aria-label="Меньше">−</button><output>0</output><button type="button" data-d="1" aria-label="Больше">+</button></div></div></div>
+  <div class="it" data-k="8" data-name="Мешок 8 кг" data-price="699" data-oz="824"><img src="img/bag.jpg" alt=""><div><b>Мешок 8 кг</b><small>самый выгодный килограмм</small></div><div class="side"><div class="pr">699 ₽</div><div class="qty"><button type="button" data-d="-1" aria-label="Меньше">−</button><output>0</output><button type="button" data-d="1" aria-label="Больше">+</button></div></div></div>
+  <div class="it" data-k="set" data-name="Набор 2 × 8 кг" data-price="1349" data-oz="1648"><img src="img/s1.jpg" alt=""><div><b>Набор 2 × 8 кг</b><small>запас на 3–4 месяца для шиншиллы</small></div><div class="side"><div class="pr"><s>1 398</s>1 349 ₽</div><div class="qty"><button type="button" data-d="-1" aria-label="Меньше">−</button><output>0</output><button type="button" data-d="1" aria-label="Больше">+</button></div></div></div>
+ </section>
+ <section class="box"><h2><i>2</i>Куда доставить</h2>
+  <div class="opts">
+   <label class="opt"><input type="radio" name="dl" value="pvz" checked><b>В пункт выдачи Ozon</b><small>Уже в цене. Забираете по коду из приложения</small></label>
+   <label class="opt"><input type="radio" name="dl" value="home"><b>Курьером до двери</b><small>По тарифу Ozon, сумму скажем до отправки</small></label>
+  </div>
+  <label class="f" for="city">Город</label><input class="t" id="city" name="city" autocomplete="address-level2" placeholder="Например, Казань" required>
+  <p class="cityhint" id="cityOut">Напишите город, и мы покажем примерный срок доставки.</p>
+  <label class="f" for="addr" id="addrL">Адрес пункта выдачи Ozon <small>(улица и дом, как в приложении)</small></label><input class="t" id="addr" name="addr" autocomplete="street-address" required>
+ </section>
+ <section class="box"><h2><i>3</i>Кто получает</h2>
+  <label class="f" for="fio">Имя и фамилия</label><input class="t" id="fio" name="fio" autocomplete="name" required>
+  <label class="f" for="tel">Телефон <small>(тот, что в вашем аккаунте Ozon)</small></label><input class="t" id="tel" name="tel" type="tel" autocomplete="tel" placeholder="+7" required>
+  <label class="f" for="mail">Почта для чека</label><input class="t" id="mail" name="mail" type="email" autocomplete="email" required>
+  <label class="f" for="cm">Комментарий <small>(не обязательно)</small></label><textarea id="cm" name="cm" rows="2"></textarea>
+ </section>
+ <section class="box"><h2><i>4</i>Как оплатить</h2>
+  <div class="opts">
+   <label class="opt"><input type="radio" name="pay" value="sbp" checked><b>СБП</b><small>Через приложение банка, за 10 секунд</small></label>
+   <label class="opt"><input type="radio" name="pay" value="card"><b>Картой</b><small>Мир, Visa, Mastercard</small></label>
+  </div>
+  <label class="agree"><input type="checkbox" id="ok" required><span>Согласен с <a href="doc-8.html#oferta" target="_blank">условиями заказа</a> и <a href="doc-8.html#privacy" target="_blank">политикой конфиденциальности</a></span></label>
+ </section>
+</div>
+<aside>
+ <div class="sum"><h2>Ваш заказ</h2>
+  <div class="lines" id="lines">Выберите товар слева.</div>
+  <div class="row"><span>Доставка</span><span id="dlv">в цене</span></div>
+  <div class="total"><span>Итого</span><b id="total">0 ₽</b></div>
+  <p class="save" id="save"></p>
+  <button class="btn" id="payb" type="submit">Оплатить</button>
+  <p class="err" id="err" role="alert"></p>
+  <p class="soon" id="soon" hidden>Это макет: оплата подключается, деньги не списываются.</p>
+ </div>
+ <div class="after"><b>Что будет дальше</b><ol><li>Сразу после оплаты придёт чек на почту.</li><li>В течение дня оформим отправку через Ozon.</li><li>Заказ появится в приложении Ozon, там же код для получения.</li></ol></div>
+ <p class="help">Есть вопрос? Позвоните <span class="fill">+7 (900) 000-00-00</span> или напишите в MAX.</p>
+</aside>
+</form>
+<footer><span>Шуршу — кварцевый песок для купания грызунов</span><span><a href="doc-8.html#privacy">Конфиденциальность</a> · <a href="doc-8.html#oferta">Условия</a></span></footer>
+</div>
+<script>
+const PAY_URL="";
+function shurshuCity(v){v=(v||'').toLowerCase().replace(/ё/g,'е').replace(/^г\.?\s*/,'').trim();if(v.length<2)return 'Напишите город, и мы покажем примерный срок доставки.';
+const T=[[['москва','мск','подмосков','зеленоград','химки','мытищи','балашиха','подольск','королев','люберцы','красногорск','одинцово','дмитров','долгопрудный','реутов','пушкино','сергиев посад','электросталь','коломна','серпухов','ногинск','щелково','раменское','жуковский','домодедово','видное','лобня','истра','клин','дубна','солнечногорск','наро-фоминск','чехов','егорьевск','орехово-зуево'],'1–2 дня'],
+[['санкт-петербург','питер','спб','петербург'],'2–3 дня'],
+[['тверь','тула','рязань','ярославль','владимир','калуга','смоленск','иваново','кострома','нижний новгород','казань','воронеж','липецк','курск','орел','брянск','тамбов','белгород','великий новгород','псков','вологда','чебоксары','йошкар-ола'],'2–4 дня'],
+[['ростов','краснодар','самара','уфа','пермь','екатеринбург','челябинск','волгоград','саратов','пенза','ульяновск','ижевск','киров','оренбург','астрахань','ставрополь','сочи','новороссийск','тольятти','набережные челны','архангельск','мурманск','калининград','сыктывкар','махачкала','грозный','нальчик','владикавказ','симферополь','севастополь'],'3–5 дней'],
+[['новосибирск','омск','тюмень','томск','барнаул','кемерово','новокузнецк','красноярск','сургут','курган','абакан','нижневартовск'],'4–7 дней'],
+[['иркутск','улан-удэ','чита','якутск','хабаровск','владивосток','благовещенск','южно-сахалинск','петропавловск','магадан','норильск','комсомольск'],'6–12 дней']];
+for(const [c,d] of T){if(c.some(x=>v.startsWith(x)||x.startsWith(v)&&v.length>3))return 'Примерно <b>'+d+'</b> после оплаты. Точный срок увидите в приложении Ozon.'}
+return 'Обычно <b>3–7 дней</b>. Точный срок скажем при подтверждении заказа.'}
+
+const its=[...document.querySelectorAll('.it')],fmt=v=>v.toLocaleString('ru-RU')+' ₽';
+const p=new URLSearchParams(location.search).get('p');
+its.forEach(el=>{if(el.dataset.k===p)el.querySelector('output').value=1;el.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const o=el.querySelector('output');o.value=Math.max(0,Math.min(20,+o.value+ +b.dataset.d));render()}))});
+if(!p)its[1].querySelector('output').value=1;
+function render(){const s=its.map(el=>({n:el.dataset.name,p:+el.dataset.price,oz:+el.dataset.oz,q:+el.querySelector('output').value})).filter(x=>x.q);
+const t=s.reduce((a,x)=>a+x.p*x.q,0),oz=s.reduce((a,x)=>a+x.oz*x.q,0);
+document.getElementById('lines').innerHTML=s.length?s.map(x=>x.n+' × '+x.q+' — '+fmt(x.p*x.q)).join('<br>'):'Выберите товар слева.';
+document.getElementById('total').textContent=fmt(t);document.getElementById('payb').textContent=t?'Оплатить '+fmt(t):'Оплатить';
+document.getElementById('save').textContent=t?'Дешевле, чем на Ozon, примерно на '+fmt(oz-t):'';
+const home=document.querySelector('input[name=dl]:checked').value==='home';document.getElementById('dlv').textContent=home?'по тарифу Ozon':'в цене';
+document.getElementById('addrL').innerHTML=home?'Адрес доставки <small>(улица, дом, квартира)</small>':'Адрес пункта выдачи Ozon <small>(улица и дом, как в приложении)</small>';
+return t}
+document.querySelectorAll('input[name=dl]').forEach(r=>r.addEventListener('change',render));
+const city=document.getElementById('city');city.addEventListener('input',()=>{document.getElementById('cityOut').innerHTML=shurshuCity(city.value)});
+if(!PAY_URL)document.getElementById('soon').hidden=false;
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const err=document.getElementById('err');err.textContent='';
+if(!render()){err.textContent='Выберите хотя бы один товар.';return}
+for(const id of ['city','addr','fio','tel','mail']){const f=document.getElementById(id);if(!f.value.trim()){err.textContent='Заполните, пожалуйста, все поля.';f.focus();return}}
+if(!/^\S+@\S+\.\S+$/.test(document.getElementById('mail').value)){err.textContent='Проверьте почту.';return}
+if(!document.getElementById('ok').checked){err.textContent='Отметьте согласие с условиями.';return}
+if(!PAY_URL){err.textContent='Это макет: оплата ещё не подключена.';return}});
+render();
+</script>
+</body></html>
