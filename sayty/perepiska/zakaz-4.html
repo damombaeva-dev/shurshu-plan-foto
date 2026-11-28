@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Шуршу — оформление заказа</title>
+<title>Шуршу: оформление заказа</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -122,7 +122,7 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;font-size:14px;c
  <p class="help">Есть вопрос? Позвоните <span class="fill">+7 (900) 000-00-00</span> или напишите в MAX.</p>
 </aside>
 </form>
-<footer><span>Шуршу — кварцевый песок для купания грызунов</span><span><a href="doc-4.html#privacy">Конфиденциальность</a> · <a href="doc-4.html#oferta">Условия</a></span></footer>
+<footer><span>Шуршу: кварцевый песок для купания грызунов</span><span><a href="doc-4.html#privacy">Конфиденциальность</a> · <a href="doc-4.html#oferta">Условия</a></span></footer>
 </div>
 <script>
 const PAY_URL="";
@@ -142,7 +142,7 @@ its.forEach(el=>{if(el.dataset.k===p)el.querySelector('output').value=1;el.query
 if(!p)its[1].querySelector('output').value=1;
 function render(){const s=its.map(el=>({n:el.dataset.name,p:+el.dataset.price,oz:+el.dataset.oz,q:+el.querySelector('output').value})).filter(x=>x.q);
 const t=s.reduce((a,x)=>a+x.p*x.q,0),oz=s.reduce((a,x)=>a+x.oz*x.q,0);
-document.getElementById('lines').innerHTML=s.length?s.map(x=>x.n+' × '+x.q+' — '+fmt(x.p*x.q)).join('<br>'):'Выберите товар слева.';
+document.getElementById('lines').innerHTML=s.length?s.map(x=>x.n+' × '+x.q+': '+fmt(x.p*x.q)).join('<br>'):'Выберите товар слева.';
 document.getElementById('total').textContent=fmt(t);document.getElementById('payb').textContent=t?'Оплатить '+fmt(t):'Оплатить';
 document.getElementById('save').textContent=t?'Дешевле, чем на Ozon, примерно на '+fmt(oz-t):'';
 const home=document.querySelector('input[name=dl]:checked').value==='home';document.getElementById('dlv').textContent=home?'по тарифу Ozon':'в цене';
