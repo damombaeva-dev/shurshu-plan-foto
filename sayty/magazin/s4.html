@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — спросите нас</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* Сайт 4 «Переписка»: всё объясняется как в мессенджере. Вопрос покупателя слева, ответ Шуршу справа; путь заказа как статусы доставки */
+:root{--bg:#eef3fb;--card:#fff;--ink:#14213d;--muted:#5f6b85;--acc:#2b7bf3;--acc2:#14213d;--line:#d9e2f1;--me:#2b7bf3;--them:#fff;--ok:#16a36a;--sand:#f6e7c1;
+--font:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:17px/1.55 var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:900;text-wrap:balance}
+.fill{background:#ffe58a;color:#3b2f00;border-radius:4px;padding:0 4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:18px;background:var(--acc);color:#fff;font-weight:800;text-decoration:none;font-size:17px}
+.btn:hover{background:#1765d8}
+.btn.w{background:#fff;color:var(--ink);box-shadow:0 1px 0 var(--line)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px;text-decoration:none}
+.logo i{width:38px;height:38px;border-radius:12px;background:var(--acc);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+.top nav{display:flex;gap:22px;font-weight:700;font-size:15px;color:var(--muted)}
+.top nav a{text-decoration:none}.top nav a:hover{color:var(--ink)}
+.online{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;background:#fff;border-radius:999px;padding:8px 14px;text-decoration:none}
+.online::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(22,163,106,.18)}
+.hero{padding-block:clamp(26px,5vw,60px) clamp(50px,7vw,90px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,5vw,60px);align-items:center}
+.hero h1{font-size:clamp(40px,5.8vw,74px)}
+.hero h1 mark{background:linear-gradient(transparent 58%,var(--sand) 58%);color:inherit}
+.hero p{font-size:clamp(18px,1.8vw,21px);color:var(--muted);margin-top:18px;max-width:30em}
+.hero p b{color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.price-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.price-row span{background:#fff;border-radius:14px;padding:10px 14px;font-weight:800}
+.price-row s{color:var(--muted);font-weight:600;margin-right:4px}
+.phone{background:#fff;border-radius:38px;padding:14px;box-shadow:0 30px 60px rgba(20,33,61,.14);max-width:420px;justify-self:center;width:100%}
+.phone .head{display:flex;align-items:center;gap:12px;padding:8px 10px 14px;border-bottom:1px solid var(--line)}
+.phone .ava{width:42px;height:42px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:900}
+.phone .head b{display:block}
+.phone .head small{color:var(--ok);font-weight:700}
+.chat{display:flex;flex-direction:column;gap:10px;padding:16px 6px 8px;background:linear-gradient(#f5f8fe,#f5f8fe)}
+.m{max-width:84%;padding:11px 14px;border-radius:20px;font-size:15.5px;line-height:1.4;position:relative}
+.m.q{align-self:flex-start;background:var(--bg);border-bottom-left-radius:6px}
+.m.a{align-self:flex-end;background:var(--me);color:#fff;border-bottom-right-radius:6px}
+.m time{display:block;font-size:11px;opacity:.65;text-align:right;margin-top:2px}
+.m.a time::after{content:" ✓✓"}
+.m img{border-radius:14px;margin-bottom:8px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.typing{align-self:flex-start;background:var(--bg);border-radius:20px;padding:12px 16px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9aa6c0;animation:t 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes t{0%,60%,100%{opacity:.3}30%{opacity:1}}
+section.s{padding-block:clamp(50px,8vw,96px)}
+.s h2{font-size:clamp(32px,4.2vw,52px);text-align:center}
+.s .lead{text-align:center;color:var(--muted);font-size:19px;max-width:34em;margin:12px auto 0}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.why div{background:#fff;border-radius:24px;padding:24px}
+.why .e{font-size:34px}
+.why b{display:block;font-size:21px;margin:8px 0 6px}
+.why p{color:var(--muted);font-size:16px}
+.track{max-width:760px;margin:36px auto 0;background:#fff;border-radius:30px;padding:clamp(20px,4vw,36px)}
+.track .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.track .hd b{font-size:20px}
+.track .hd span{background:#e3f6ed;color:var(--ok);border-radius:999px;padding:5px 12px;font-weight:800;font-size:14px}
+.st{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;position:relative}
+.st:not(:last-child)::after{content:"";position:absolute;left:21px;top:58px;bottom:-14px;width:2px;background:var(--line)}
+.st i{width:44px;height:44px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:900;position:relative;z-index:1}
+.st.oz i{background:#7a5cff}
+.st b{font-size:19px;display:block}
+.st p{color:var(--muted);font-size:16px}
+.st small{display:inline-block;margin-top:6px;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);background:#e8f0fe;border-radius:999px;padding:3px 10px}
+.st.oz small{color:#5b3fe0;background:#ece8ff}
+.cityb{margin-top:10px;background:var(--bg);border-radius:20px;padding:18px}
+.cityb label{font-weight:800}
+.cityb .row{display:flex;gap:8px;margin-top:10px}
+.cityb input{flex:1;min-width:0;font:17px var(--font);padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.cityb input:focus{outline:none;border-color:var(--acc)}
+.cityout{margin-top:10px;min-height:24px}
+.ask{margin-top:16px;text-align:center;color:var(--muted)}
+.ask a{color:var(--acc);font-weight:800}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.pc{background:#fff;border-radius:28px;padding:12px;display:flex;flex-direction:column}
+.pc.hit{box-shadow:0 0 0 3px var(--acc)}
+.pc img{border-radius:20px;aspect-ratio:4/3.4;object-fit:cover;width:100%}
+.pc .bd{padding:14px 10px 6px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pc .bub{align-self:flex-start;background:var(--sand);border-radius:14px 14px 14px 4px;padding:6px 12px;font-weight:800;font-size:13px}
+.pc h3{font-size:24px}
+.pc p{color:var(--muted);font-size:15px;flex:1}
+.pc .pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:6px}
+.pc .pr b{white-space:nowrap;font-size:36px;font-weight:900;letter-spacing:-.03em}
+.pc .pr s{color:var(--muted)}
+.pc .btn{margin-top:10px}
+.inc{text-align:center;color:var(--muted);font-size:15px;margin-top:18px}
+.know{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center;margin-top:36px}
+.know .ph{border-radius:30px;overflow:hidden}
+.know .ph img{aspect-ratio:4/4.4;object-fit:cover;width:100%;object-position:50% 30%}
+.facts{display:flex;flex-direction:column;gap:12px}
+.facts .m{max-width:100%;font-size:17px;padding:14px 18px}
+.facts .m b{display:block}
+.faqchat{max-width:760px;margin:36px auto 0;background:#fff;border-radius:30px;padding:clamp(16px,3vw,30px);display:flex;flex-direction:column;gap:10px}
+.faqchat .m{font-size:16.5px;max-width:80%}
+.faqchat .m.q{font-weight:800}
+.faqchat .day{align-self:center;font-size:13px;color:var(--muted);background:var(--bg);border-radius:999px;padding:4px 12px;margin:6px 0}
+.ct{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.ct a,.ct div{background:#fff;border-radius:24px;padding:24px;text-decoration:none;display:block}
+.ct .big{background:var(--acc);color:#fff}
+.ct span{font-size:14px;opacity:.75}
+.ct b{display:block;font-size:22px;margin-top:4px}
+.ct p{font-size:14px;opacity:.75;margin-top:6px}
+footer{margin-top:30px;background:var(--acc2);color:#b9c3db}
+footer .wrap{padding-block:36px 120px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:15px}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{text-decoration:none}footer a:hover{color:#fff}
+@media (max-width:960px){.top nav{display:none}.hero .wrap,.know{grid-template-columns:minmax(0,1fr)}.why,.prods,.ct{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none}}
+</style></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="#"><i>ш</i>шуршу</a><nav><a href="#kak">Как заказать</a><a href="#tovary">Цены</a><a href="#pesok">О песке</a><a href="#faq">Вопросы</a></nav><a class="online" href="#kontakty">Мы на связи</a></div></header>
+
+<section class="hero"><div class="wrap">
+ <div>
+  <h1>«Шуршу», как на Ozon, <mark>но дешевле</mark></h1>
+  <p>Тот же песок для купания. Заказываете здесь, <b>получаете через Ozon</b>: в своём пункте выдачи или курьером. Ничего нового, просто <b>платите меньше</b>.</p>
+  <div class="price-row"><span><s>~880</s> 699 ₽ · 8 кг</span><span><s>~465</s> 389 ₽ · 3,2 кг</span></div>
+  <div class="cta"><a class="btn" href="#tovary">Выбрать песок</a><a class="btn w" href="#kak">Как это работает</a></div>
+ </div>
+ <div class="phone" aria-label="Пример переписки с магазином">
+  <div class="head"><div class="ava">ш</div><div><b>Шуршу</b><small>онлайн</small></div></div>
+  <div class="chat">
+   <div class="m q">Это тот же песок, что я беру на Ozon?<time>19:02</time></div>
+   <div class="m a">Да, тот же! Мы его продавец. Здесь просто без комиссии площадки, поэтому дешевле<time>19:02</time></div>
+   <div class="m q">А доставка как?<time>19:03</time></div>
+   <div class="m a"><img src="img/bag.jpg" alt="">Тоже Ozon. Заказ появится у вас в приложении, заберёте в своём пункте. 8 кг — 699 ₽<time>19:03</time></div>
+   <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+ <h2>Почему здесь дешевле</h2>
+ <p class="lead">Без хитростей, всё честно.</p>
+ <div class="why">
+  <div><div class="e">💸</div><b>Нет комиссии площадки</b><p>На Ozon она входит в цену. Здесь вы покупаете у нас напрямую.</p></div>
+  <div><div class="e">📌</div><b>Цена не скачет</b><p>Не 850, не 930, а всегда 699 ₽ за 8 кг. До 31 марта 2027 точно.</p></div>
+  <div><div class="e">🤝</div><b>Тот же песок</b><p>Та же упаковка, тот же склад, та же доставка Ozon.</p></div>
+ </div>
+</div></section>
+
+<section class="s" id="kak" style="padding-top:0"><div class="wrap">
+ <h2>Как пройдёт ваш заказ</h2>
+ <p class="lead">Вот так он будет выглядеть по шагам.</p>
+ <div class="track">
+  <div class="hd"><b>Заказ «Шуршу 8 кг»</b><span>всё как обычно</span></div>
+  <div class="st"><i>1</i><div><b>Выбран на сайте</b><p>Вы выбираете бутылку, мешок или набор.</p><small>здесь</small></div></div>
+  <div class="st"><i>2</i><div><b>Оплачен</b><p>По СБП или картой. Чек приходит на почту.</p><small>здесь</small></div></div>
+  <div class="st oz"><i>3</i><div><b>Передан в Ozon</b><p>В течение дня мы оформляем отправку. Заказ появляется в вашем приложении Ozon по номеру телефона.</p><small>в Ozon</small></div></div>
+  <div class="st oz"><i>4</i><div><b>Ждёт вас</b><p>В вашем пункте выдачи Ozon, забираете по коду. Или курьер привозит домой.</p><small>в Ozon</small></div></div>
+  <div class="cityb"><label for="city">Когда привезут в ваш город?</label><div class="row"><input id="city" placeholder="Например, Самара" autocomplete="address-level2"></div><p class="cityout" id="cityOut" aria-live="polite"></p></div>
+ </div>
+ <p class="ask">Что-то непонятно? <a href="#kontakty">Позвоните</a> или <a href="#kontakty">напишите в MAX</a>, ответит живой человек.</p>
+</div></section>
+
+<section class="s" id="tovary" style="padding-top:0"><div class="wrap">
+ <h2>Что заказать</h2>
+ <div class="prods">
+  <div class="pc"><img src="img/bottle.jpg" alt="Бутылка Шуршу 3,2 кг"><div class="bd"><span class="bub">+ тальк в подарок</span><h3>Бутылка 3,2 кг</h3><p>Попробовать или для одного хомяка, песчанки, дегу.</p><div class="pr"><b>389 ₽</b><s>~440–490 ₽ на Ozon</s></div><a class="btn" href="zakaz-4.html?p=32">Купить</a></div></div>
+  <div class="pc hit"><img src="img/bag.jpg" alt="Мешок Шуршу 8 кг"><div class="bd"><span class="bub">берут чаще всего</span><h3>Мешок 8 кг</h3><p>Шиншилле примерно на 2 месяца. Самый выгодный килограмм.</p><div class="pr"><b>699 ₽</b><s>~820–915 ₽ на Ozon</s></div><a class="btn" href="zakaz-4.html?p=8">Купить</a></div></div>
+  <div class="pc"><img src="img/s1.jpg" alt="Набор Шуршу 2 мешка по 8 кг"><div class="bd"><span class="bub">ещё −49 ₽</span><h3>Набор 2 × 8 кг</h3><p>Запас на 3–4 месяца или на несколько зверьков.</p><div class="pr"><b>1 349 ₽</b><s>~1 650–1 830 ₽ на Ozon</s></div><a class="btn" href="zakaz-4.html?p=set">Купить</a></div></div>
+ </div>
+ <p class="inc">Доставка до пункта выдачи Ozon уже в цене. Цены на Ozon с карточек «Шуршу» на 27.11.</p>
+</div></section>
+
+<section class="s" id="pesok" style="padding-top:0"><div class="wrap">
+ <h2>Впервые слышите о «Шуршу»?</h2>
+ <div class="know">
+  <div class="ph"><img src="img/chin.jpg" alt="Шиншилла"></div>
+  <div class="facts">
+   <div class="m a"><b>Для кого</b>Шиншиллы, дегу, хомяки, песчанки, слепушонки</div>
+   <div class="m q"><b>Не пылит</b>Сыплется ровной струйкой, зверёк дышит легко</div>
+   <div class="m a"><b>Мелкий и гладкий</b>Зёрна 0,1–0,3 мм, окатанные, не царапают</div>
+   <div class="m q"><b>Чистый</b>Промыт и прокалён. Гипоаллергенный, без запаха</div>
+   <div class="m a"><b>Как купать</b>Слой 2 см, 15–20 минут, 2–3 раза в неделю. Потом просеять</div>
+  </div>
+ </div>
+</div></section>
+
+<section class="s" id="faq" style="padding-top:0"><div class="wrap">
+ <h2>Что у нас обычно спрашивают</h2>
+ <div class="faqchat">
+  <span class="day">частые вопросы</span>
+  <div class="m q">Точно тот же песок, что на Ozon?</div>
+  <div class="m a">Да. Та же упаковка, тот же склад. Мы продаём «Шуршу» на Ozon.</div>
+  <div class="m q">Где я увижу заказ?</div>
+  <div class="m a">В приложении Ozon по вашему номеру телефона, как обычный заказ. Там же код для получения.</div>
+  <div class="m q">Можно привезти домой?</div>
+  <div class="m a">Да, курьером Ozon. Курьер по тарифу Ozon, сумму скажем до отправки. В пункт выдачи доставка уже в цене.</div>
+  <div class="m q">Сколько ждать?</div>
+  <div class="m a">Отправляем в течение дня. Москва и область 1–2 дня, другие города обычно 2–7 дней.</div>
+  <div class="m q">Платить на сайте безопасно?</div>
+  <div class="m a">Да, оплата идёт через банк по СБП или картой. Данные карты мы не видим, чек приходит на почту.</div>
+  <div class="m q">А если не подойдёт?</div>
+  <div class="m a">Неоткрытую упаковку вернём в течение 7 дней после получения. Если что-то не так с товаром, вернём деньги полностью.</div>
+  <div class="m q">Почему песок блестит?</div>
+  <div class="m a">Это кварц, зёрна полупрозрачные. А пакетик в бутылке 3,2 кг — тальк, наш подарок 🙂</div>
+ </div>
+</div></section>
+
+<section class="s" id="kontakty" style="padding-top:0"><div class="wrap">
+ <h2>Напишите или позвоните</h2>
+ <p class="lead">Каждый день с 10 до 20 по Москве. Отвечаем сами, без роботов.</p>
+ <div class="ct">
+  <div class="big"><span>MAX</span><b><span class="fill">Написать в MAX</span></b><p>Отвечаем в рабочее время</p></div>
+  <div><span>Телефон</span><b><span class="fill">+7 (900) 000-00-00</span></b><p>Поможем выбрать объём</p></div>
+  <div><span>Почта</span><b><span class="fill">почта@шуршу.рф</span></b><p>Для чеков и возвратов</p></div>
+ </div>
+</div></section>
+
+<footer><div class="wrap"><span>© Шуршу · <span class="fill">ИП Фамилия И. О., ИНН ____________</span></span><nav><a href="doc-4.html#oferta">Условия заказа</a><a href="doc-4.html#vozvrat">Возврат</a><a href="doc-4.html#privacy">Конфиденциальность</a><a href="doc-4.html#rules">Правила сайта</a></nav></div></footer>
+<script>
+/*CITYJS*/function shurshuCity(v){v=(v||'').toLowerCase().replace(/ё/g,'е').replace(/^г\.?\s*/,'').trim();if(v.length<2)return 'Напишите город, и мы покажем примерный срок доставки.';
+const T=[[['москва','мск','подмосков','зеленоград','химки','мытищи','балашиха','подольск','королев','люберцы','красногорск','одинцово','дмитров','долгопрудный','реутов','пушкино','сергиев посад','электросталь','коломна','серпухов','ногинск','щелково','раменское','жуковский','домодедово','видное','лобня','истра','клин','дубна','солнечногорск','наро-фоминск','чехов','егорьевск','орехово-зуево'],'1–2 дня'],
+[['санкт-петербург','питер','спб','петербург'],'2–3 дня'],
+[['тверь','тула','рязань','ярославль','владимир','калуга','смоленск','иваново','кострома','нижний новгород','казань','воронеж','липецк','курск','орел','брянск','тамбов','белгород','великий новгород','псков','вологда','чебоксары','йошкар-ола'],'2–4 дня'],
+[['ростов','краснодар','самара','уфа','пермь','екатеринбург','челябинск','волгоград','саратов','пенза','ульяновск','ижевск','киров','оренбург','астрахань','ставрополь','сочи','новороссийск','тольятти','набережные челны','архангельск','мурманск','калининград','сыктывкар','махачкала','грозный','нальчик','владикавказ','симферополь','севастополь'],'3–5 дней'],
+[['новосибирск','омск','тюмень','томск','барнаул','кемерово','новокузнецк','красноярск','сургут','курган','абакан','нижневартовск'],'4–7 дней'],
+[['иркутск','улан-удэ','чита','якутск','хабаровск','владивосток','благовещенск','южно-сахалинск','петропавловск','магадан','норильск','комсомольск'],'6–12 дней']];
+for(const [c,d] of T){if(c.some(x=>v.startsWith(x)||x.startsWith(v)&&v.length>3))return 'Примерно <b>'+d+'</b> после оплаты. Точный срок увидите в приложении Ozon.'}
+return 'Обычно <b>3–7 дней</b>. Точный срок скажем при подтверждении заказа.'}
+/*END*/
+const c=document.getElementById('city'),o=document.getElementById('cityOut');c.addEventListener('input',()=>o.innerHTML=shurshuCity(c.value));
+</script>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/s(\d+)\.html$/);const n=m?+m[1]:1,T=5;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='s'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='s'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>
