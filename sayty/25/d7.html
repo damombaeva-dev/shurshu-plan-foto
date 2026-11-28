@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Горизонт</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Onest:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 7 «Горизонт»: на компьютере сайт листается вбок, как лента слайдов (колесо мыши крутит вправо). Каждый экран своего оттенка голубого. На телефоне обычная прокрутка вниз */
+:root{--c1:#0a4fc4;--c2:#1386e8;--c3:#3fb4f6;--c4:#8adcfe;--c5:#e8f6ff;--ink:#071a4a;--white:#fff;
+--font:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--c1);color:var(--white);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.rail{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.panel{flex:0 0 100vw;height:100%;scroll-snap-align:start;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(20px,4vw,64px);padding-block:90px 80px;padding-left:max(clamp(20px,5vw,80px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,5vw,80px),env(safe-area-inset-right,0px));overflow:hidden}
+.p1{background:linear-gradient(120deg,var(--c1),var(--c2))}
+.p2{background:var(--c2)}
+.p3{background:linear-gradient(120deg,var(--c2),var(--c3))}
+.p4{background:var(--c4);color:var(--ink)}
+.p5{background:var(--c5);color:var(--ink)}
+.p6{background:var(--ink)}
+.big{position:absolute;right:-2vw;bottom:-6vh;font-weight:800;font-size:clamp(160px,30vw,420px);line-height:.8;letter-spacing:-.06em;opacity:.09;pointer-events:none}
+h1,h2{font-weight:800;letter-spacing:-.045em;line-height:.95}
+h1{font-size:clamp(44px,6.4vw,104px)}
+h2{font-size:clamp(36px,5vw,80px)}
+.lead{font-size:clamp(16px,1.4vw,20px);margin-top:20px;max-width:30em;opacity:.92}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:var(--white);color:var(--ink);text-decoration:none;font-weight:600;margin-top:28px}
+.btn.dk{background:var(--ink);color:#fff}
+.ph{border-radius:40px;overflow:hidden;box-shadow:0 30px 80px rgba(0,20,80,.3);max-height:72vh}
+.ph img{width:100%;height:100%;object-fit:cover}
+.hint{display:inline-flex;align-items:center;gap:12px;margin-top:34px;font-size:14px;opacity:.8}
+.hint i{width:46px;height:2px;background:currentColor;position:relative}
+.hint i::after{content:"";position:absolute;right:0;top:-4px;border:5px solid transparent;border-left-color:currentColor;border-right:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tags span{border:1.5px solid rgba(255,255,255,.6);border-radius:999px;padding:8px 16px;font-size:14px}
+.p4 .tags span{border-color:rgba(7,26,74,.35)}
+.steps{display:grid;gap:12px;margin-top:24px}
+.steps div{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.55);border-radius:20px;padding:14px 18px}
+.steps b{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none}
+.prods{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-self:center}
+.pc{background:#fff;border-radius:30px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 50px rgba(10,60,160,.12)}
+.pc img{border-radius:20px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.pc .r{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px}
+.pc b{font-size:18px}
+.pc strong{font-size:26px;letter-spacing:-.03em}
+.pc s{font-size:14px;opacity:.5;font-weight:400;margin-right:6px}
+.pc a{display:block;text-align:center;background:var(--c2);color:#fff;text-decoration:none;border-radius:999px;padding:14px;font-weight:600}
+.p5 h2{grid-column:1/-1;align-self:end}
+.top{position:fixed;z-index:20;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;align-items:center;gap:20px;padding-block:22px;padding-left:max(clamp(20px,5vw,80px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,5vw,80px),env(safe-area-inset-right,0px));pointer-events:none}
+.top>*{pointer-events:auto}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.03em;text-decoration:none;color:#fff;mix-blend-mode:difference}
+.prog{flex:1;height:3px;background:rgba(255,255,255,.25);border-radius:3px;overflow:hidden;max-width:280px;margin-left:auto}
+.prog i{display:block;height:100%;width:16%;background:#fff;transition:width .2s}
+.dots{display:flex;gap:6px}
+.dots a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;text-decoration:none;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
+@media (max-width:900px){
+  html,body{height:auto}
+  .rail{display:block;height:auto;overflow:visible}
+  .panel{height:auto;min-height:0;grid-template-columns:1fr;padding-block:90px 60px}
+  .prods{grid-template-columns:1fr}
+  .top{position:absolute}
+  .prog,.dots{display:none}
+  .ph{max-height:none}
+  .p1 .ph{order:-1}
+}
+</style></head><body>
+<header class="top"><a class="logo" href="#s1">Шуршу</a><div class="prog"><i id="bar"></i></div><nav class="dots"><a href="#s1">1</a><a href="#s3">2</a><a href="#s4">3</a><a href="#s5">4</a></nav></header>
+<main class="rail" id="rail">
+  <section class="panel p1" id="s1"><div><h1>Песок, в котором хочется шуршать</h1><p class="lead">Мелкий кварцевый песок для купания шиншилл, дегу, хомяков, песчанок и слепушонок. Без пыли, промыт и прокалён.</p><a class="btn" href="#s5">Выбрать объём →</a><div class="hint"><i></i>Листайте вправо</div></div><div class="ph"><img src="img/hero.jpg" alt="Шиншилла купается" style="aspect-ratio:4/3.4;object-position:72% 50%"></div><span class="big">01</span></section>
+  <section class="panel p2" id="s2"><div class="ph"><img src="img/dust.jpg" alt="Песок насыпают без пыли" style="aspect-ratio:3/4"></div><div><h2>Без пыли</h2><p class="lead">Песок сыплется ровной струйкой, а не облаком. Зверёк дышит легко, а мебель вокруг клетки остаётся чистой.</p><div class="tags"><span>не пылит</span><span>без запаха</span><span>гипоаллергенный</span></div></div><span class="big">02</span></section>
+  <section class="panel p3" id="s3"><div><h2>Чистый, как вода в стакане</h2><p class="lead">Песок промывают и прокаливают. Насыпьте его в стакан с водой: вода останется прозрачной.</p><div class="tags"><span>промыт</span><span>прокалён</span><span>0,1–0,3 мм</span></div></div><div class="ph"><img src="img/clean.jpg" alt="Песок в стакане воды" style="aspect-ratio:3/4"></div><span class="big">03</span></section>
+  <section class="panel p4" id="s4"><div class="ph"><img src="img/s4.jpg" alt="Просеивание песка" style="aspect-ratio:1"></div><div><h2>Как купать</h2><div class="steps"><div><b>1</b>Насыпьте слой 2 см</div><div><b>2</b>Поставьте в клетку на 15–20 минут</div><div><b>3</b>Уберите купалку после купания</div><div><b>4</b>Просейте и используйте снова</div></div></div><span class="big">04</span></section>
+  <section class="panel p5" id="s5"><h2>Выберите объём</h2><div class="prods">
+    <div class="pc"><img src="img/bottle.jpg" alt=""><div class="r"><b>Бутылка 3,2 кг</b><strong>389 ₽</strong></div><a href="zakaz.html">Заказать</a></div>
+    <div class="pc"><img src="img/bag.jpg" alt=""><div class="r"><b>Мешок 8 кг</b><strong>699 ₽</strong></div><a href="zakaz.html">Заказать</a></div>
+    <div class="pc"><img src="img/who.jpg" alt=""><div class="r"><b>Набор 2 × 8 кг</b><strong><s>1 398</s>1 349 ₽</strong></div><a href="zakaz.html">Заказать</a></div>
+  </div><span class="big">05</span></section>
+  <section class="panel p6" id="s6"><div><h2>Пусть пошуршит уже на этой неделе</h2><p class="lead">Оплачиваете на сайте, забираете в пункте выдачи Ozon рядом с домом. Цена уже с доставкой.</p><a class="btn" href="zakaz.html">Оформить заказ</a></div><div class="ph"><img src="img/chin.jpg" alt="Шиншилла" style="aspect-ratio:3/4;object-position:50% 20%"></div><span class="big">06</span></section>
+</main>
+<script>
+const r=document.getElementById('rail'),bar=document.getElementById('bar');
+const wide=()=>matchMedia('(min-width:901px)').matches;
+let lock=0;r.addEventListener('wheel',e=>{if(!wide()||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;e.preventDefault();const now=Date.now();if(now-lock<700||Math.abs(e.deltaY)<4)return;lock=now;r.scrollBy({left:e.deltaY>0?innerWidth:-innerWidth,behavior:'smooth'})},{passive:false});
+r.addEventListener('scroll',()=>{const p=r.scrollLeft/(r.scrollWidth-r.clientWidth||1);bar.style.width=(16+p*84)+'%'});
+document.querySelectorAll('a[href^="#s"]').forEach(a=>a.addEventListener('click',e=>{if(!wide())return;e.preventDefault();const t=document.querySelector(a.getAttribute('href'));r.scrollTo({left:t.offsetLeft,behavior:'smooth'})}));
+</script>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

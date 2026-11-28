@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Бетон</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 18 «Бетон»: смелый брутализм. Толстые линии, блоки без скруглений, бегущая строка, огромный тяжёлый шрифт, синий + белый + чёрный */
+:root{--bg:#ffffff;--ink:#000;--blue:#0038ff;--sky:#7fd6ff;--sand:#f2dfb0;--muted:#333;
+--heavy:"Dela Gothic One","Arial Black",Impact,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--mono);background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;font-size:15px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.b{border:3px solid var(--ink)}
+.top{display:flex;align-items:stretch;border-bottom:3px solid var(--ink)}
+.top>*{padding:14px 18px;border-right:3px solid var(--ink);display:flex;align-items:center;text-decoration:none;font-weight:700;text-transform:uppercase}
+.top .logo{font-family:var(--heavy);font-size:24px;text-transform:none;background:var(--blue);color:#fff}
+.top .sp{flex:1;border-right:0}
+.top .cta{border-right:0;border-left:3px solid var(--ink);background:var(--sand)}
+.top .cta:hover{background:var(--ink);color:#fff}
+.mq{overflow:hidden;border-bottom:3px solid var(--ink);background:var(--ink);color:#fff;white-space:nowrap}
+.mq div{display:inline-block;padding:12px 0;font-family:var(--heavy);font-size:22px;animation:run 22s linear infinite}
+@keyframes run{to{transform:translateX(-50%)}}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;border-bottom:3px solid var(--ink)}
+.hero .t{padding:clamp(20px,4vw,48px);border-right:3px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.hero h1{font-family:var(--heavy);font-weight:400;font-size:clamp(52px,8.4vw,140px);line-height:.88;letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{max-width:34em;font-size:16px}
+.hero .ph{position:relative}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:72% 50%;min-height:360px}
+.hero .ph span{position:absolute;left:0;bottom:0;background:#fff;border-top:3px solid var(--ink);border-right:3px solid var(--ink);padding:10px 14px;font-weight:700;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:62px;padding:0 26px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;text-transform:uppercase;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:3px solid var(--ink)}
+.three>div{border-right:3px solid var(--ink);display:flex;flex-direction:column}
+.three>div:last-child{border-right:0}
+.three img{aspect-ratio:4/3;object-fit:cover;width:100%;border-bottom:3px solid var(--ink)}
+.three .c{padding:18px}
+.three h2{font-family:var(--heavy);font-weight:400;font-size:clamp(28px,3vw,42px);text-transform:uppercase;line-height:1}
+.three p{margin-top:8px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:3px solid var(--ink);background:var(--sky)}
+.nums div{padding:22px 18px;border-right:3px solid var(--ink)}
+.nums div:last-child{border-right:0}
+.nums b{font-family:var(--heavy);font-weight:400;font-size:clamp(36px,4.6vw,70px);display:block;line-height:1}
+.nums span{text-transform:uppercase;font-weight:700;font-size:13px}
+.sh{font-family:var(--heavy);font-weight:400;font-size:clamp(40px,7vw,110px);text-transform:uppercase;line-height:.9;padding:clamp(24px,4vw,40px) 0;border-bottom:3px solid var(--ink)}
+.how{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:3px solid var(--ink)}
+.how div{padding:20px 18px 26px;border-right:3px solid var(--ink)}
+.how div:last-child{border-right:0}
+.how i{font-family:var(--heavy);font-style:normal;font-size:60px;line-height:1;color:var(--blue);display:block}
+.how b{text-transform:uppercase;display:block;margin:10px 0 4px;font-size:17px}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:3px solid var(--ink)}
+.it{border-right:3px solid var(--ink);display:flex;flex-direction:column}
+.it:last-child{border-right:0}
+.it img{aspect-ratio:1;object-fit:cover;width:100%;border-bottom:3px solid var(--ink)}
+.it .c{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.it h3{font-family:var(--heavy);font-weight:400;font-size:26px;text-transform:uppercase;line-height:1}
+.it p{flex:1}
+.it .pr{font-family:var(--heavy);font-size:46px;line-height:1;color:var(--blue)}
+.it .pr s{font-family:var(--mono);font-size:16px;color:var(--muted);margin-right:8px}
+.it:nth-child(2){background:var(--sand)}
+.qa{display:grid;grid-template-columns:1fr 1fr;border-bottom:3px solid var(--ink)}
+.qa div{padding:18px;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.qa div:nth-child(2n){border-right:0}
+.qa div:nth-last-child(-n+2){border-bottom:0}
+.qa b{text-transform:uppercase;display:block;margin-bottom:6px}
+.end{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:clamp(24px,4vw,48px) 120px}
+.end b{font-family:var(--heavy);font-weight:400;font-size:clamp(34px,5vw,72px);text-transform:uppercase;line-height:.95}
+@media (max-width:860px){.hero,.three,.shop,.qa{grid-template-columns:1fr}.hero .t{border-right:0;border-bottom:3px solid var(--ink)}.three>div,.it{border-right:0;border-bottom:3px solid var(--ink)}.nums,.how{grid-template-columns:1fr 1fr}.nums div:nth-child(2),.how div:nth-child(2){border-right:0}.nums div:nth-child(-n+2),.how div:nth-child(-n+2){border-bottom:3px solid var(--ink)}.qa div{border-right:0!important;border-bottom:3px solid var(--ink)!important}.top .hide{display:none}}
+@media (prefers-reduced-motion:reduce){.mq div{animation:none}.btn{transition:none}}
+</style></head><body>
+<header class="top wrap" style="padding-left:0;padding-right:0"><a class="logo" href="#">шуршу</a><a class="hide" href="#how">Купание</a><a class="hide" href="#shop">Цены</a><span class="sp"></span><a class="cta" href="zakaz.html">Заказать →</a></header>
+<div class="mq" aria-hidden="true"><div>БЕЗ ПЫЛИ ✦ ПРОМЫТ ✦ ПРОКАЛЁН ✦ 0,1–0,3 ММ ✦ ДЛЯ ШИНШИЛЛ ✦ ДЛЯ ДЕГУ ✦ ДЛЯ ХОМЯКОВ ✦ БЕЗ ПЫЛИ ✦ ПРОМЫТ ✦ ПРОКАЛЁН ✦ 0,1–0,3 ММ ✦ ДЛЯ ШИНШИЛЛ ✦ ДЛЯ ДЕГУ ✦ ДЛЯ ХОМЯКОВ ✦&nbsp;</div></div>
+<section class="hero">
+  <div class="t wrap"><h1>Песок. <em>Не пыль.</em></h1><div><p>Мелкий кварцевый песок для купания шиншилл, дегу, хомяков, песчанок и слепушонок. Промыт и прокалён.</p><br><a class="btn" href="#shop">Выбрать объём →</a></div></div>
+  <div class="ph"><img src="img/hero.jpg" alt="Шиншилла купается"><span>Шиншилла. Купание. 15 минут.</span></div>
+</section>
+<section class="three">
+  <div><img src="img/dust.jpg" alt="Без пыли" style="object-position:50% 65%"><div class="c"><h2>Без пыли</h2><p>Ровная струйка. Чистые лёгкие, чистая мебель.</p></div></div>
+  <div><img src="img/clean.jpg" alt="Чистый" style="object-position:50% 70%"><div class="c"><h2>Чистый</h2><p>Стакан воды остаётся прозрачным.</p></div></div>
+  <div><img src="img/macro.jpg" alt="Мягкий"><div class="c"><h2>Мягкий</h2><p>Окатанные зёрна. Без острых граней.</p></div></div>
+</section>
+<section class="nums"><div><b>0,1</b><span>мм мин. зерно</span></div><div><b>0,3</b><span>мм макс. зерно</span></div><div><b>2 см</b><span>слой</span></div><div><b>15–20</b><span>минут</span></div></section>
+<h2 class="sh wrap" id="how">Как купать</h2>
+<section class="how"><div><i>1</i><b>Насыпать</b>Слой 2 см.</div><div><i>2</i><b>Ждать</b>15–20 минут.</div><div><i>3</i><b>Убрать</b>Купалку из клетки.</div><div><i>4</i><b>Просеять</b>И снова в дело.</div></section>
+<h2 class="sh wrap" id="shop">Цены</h2>
+<section class="shop">
+  <div class="it"><img src="img/bottle.jpg" alt=""><div class="c"><h3>Бутылка 3,2 кг</h3><p>Одному зверьку надолго. Тальк в подарок.</p><span class="pr">389 ₽</span><a class="btn" href="zakaz.html">В заказ</a></div></div>
+  <div class="it"><img src="img/bag.jpg" alt=""><div class="c"><h3>Мешок 8 кг</h3><p>Самый выгодный килограмм.</p><span class="pr">699 ₽</span><a class="btn" href="zakaz.html">В заказ</a></div></div>
+  <div class="it"><img src="img/s1.jpg" alt=""><div class="c"><h3>2 × 8 кг</h3><p>Запас для нескольких зверьков.</p><span class="pr"><s>1 398</s>1 349 ₽</span><a class="btn" href="zakaz.html">В заказ</a></div></div>
+</section>
+<section class="qa">
+  <div><b>Почему блестит?</b>Кварц. Зёрна полупрозрачные.</div>
+  <div><b>Что за пакетик?</b>Тальк в бутылке 3,2 кг. Подарок.</div>
+  <div><b>Водой можно?</b>Нет. Шерсть сохнет долго.</div>
+  <div><b>Как забрать?</b>Пункт выдачи Ozon. Цена с доставкой.</div>
+</section>
+<div class="end wrap"><b>Пусть шуршит.</b><a class="btn" href="zakaz.html">Оформить заказ →</a></div>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

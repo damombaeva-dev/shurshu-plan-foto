@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Сторис</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 15 «Сторис»: сайт листается как истории в телефоне. Кружки-темы сверху, большая история по центру с полосками прогресса, касание слева и справа листает */
+:root{--bg1:#061a5c;--bg2:#0c4fd0;--bg3:#1c9ef0;--white:#fff;--soft:rgba(255,255,255,.14);--line:rgba(255,255,255,.3);--ink:#0b1840;--sand:#f3e2bb;
+--font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:radial-gradient(120% 80% at 50% 0%,var(--bg3),var(--bg2) 45%,var(--bg1));background-attachment:fixed;color:var(--white);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;align-items:center;justify-content:space-between;padding-block:18px}
+.logo{font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:999px;background:var(--white);color:var(--ink);text-decoration:none;font-weight:700;border:0;cursor:pointer;font-family:var(--font);font-size:15px}
+.rings{display:flex;gap:16px;justify-content:center;overflow-x:auto;scrollbar-width:none;padding-block:10px 22px}
+.rings::-webkit-scrollbar{display:none}
+.ring{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;color:#fff;cursor:pointer;font:500 13px var(--font)}
+.ring i{width:72px;height:72px;border-radius:50%;padding:3px;background:conic-gradient(var(--sand),#8adcfe,#fff,var(--sand));display:block}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--bg2)}
+.ring.seen i{background:var(--line)}
+.stage{display:grid;grid-template-columns:1fr minmax(0,400px) 1fr;gap:24px;align-items:center}
+.side{opacity:.45;filter:blur(1px);border-radius:24px;overflow:hidden;aspect-ratio:9/16;max-height:62vh;justify-self:end;transform:scale(.86)}
+.side.r{justify-self:start}
+.side img{width:100%;height:100%;object-fit:cover}
+.story{position:relative;width:100%;max-width:400px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.45);user-select:none}
+.story img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%,transparent 50%,rgba(3,15,60,.85));pointer-events:none}
+.bars{position:absolute;z-index:3;top:12px;left:12px;right:12px;display:flex;gap:4px}
+.bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
+.bars b{display:block;height:100%;width:0;background:#fff}
+.who{position:absolute;z-index:3;top:26px;left:14px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.who img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff}
+.txt{position:absolute;z-index:3;left:20px;right:20px;bottom:22px;display:flex;flex-direction:column;gap:10px}
+.txt h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.txt p{font-size:16px;opacity:.92}
+.chip{align-self:flex-start;background:var(--sand);color:var(--ink);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px}
+.tap{position:absolute;z-index:4;top:0;bottom:0;width:35%;background:none;border:0;cursor:pointer}
+.tap.l{left:0}.tap.r{right:0}
+.txt .btn{position:relative;z-index:5;align-self:flex-start}
+.hint{text-align:center;opacity:.75;font-size:14px;margin-top:16px}
+.below{margin-top:46px;background:var(--white);color:var(--ink);border-radius:36px 36px 0 0;padding:clamp(24px,4vw,48px) 0 120px}
+.below h2{font-size:clamp(30px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.p{border-radius:26px;background:#eef6ff;padding:12px;display:flex;flex-direction:column;gap:10px}
+.p img{border-radius:18px;aspect-ratio:1;object-fit:cover;width:100%}
+.p .r{display:flex;justify-content:space-between;gap:8px;align-items:baseline;padding-inline:6px}
+.p b{font-size:18px}.p strong{font-size:24px;letter-spacing:-.03em}
+.p s{font-size:14px;opacity:.5;font-weight:400;margin-right:4px}
+.p .btn{background:var(--bg2);color:#fff}
+.muted{color:#5b6b90;margin-top:10px}
+@media (max-width:820px){.stage{grid-template-columns:1fr}.side{display:none}.story{margin:0 auto;max-height:none}.grid{grid-template-columns:1fr}.ring i{width:62px;height:62px}.rings{justify-content:flex-start}}
+</style></head><body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#">шуршу</a><a class="btn" href="zakaz.html">Заказать</a></header>
+  <div class="rings" id="rings"></div>
+  <div class="stage">
+    <div class="side"><img id="sideL" src="img/who.jpg" alt=""></div>
+    <div class="story" id="story">
+      <img class="bg" id="sImg" src="img/hero.jpg" alt="">
+      <div class="bars" id="bars"></div>
+      <div class="who"><img src="img/chin.jpg" alt="">шуршу <span style="opacity:.7;font-weight:400" id="sTag">· знакомство</span></div>
+      <button class="tap l" type="button" id="prev" aria-label="Предыдущая история"></button>
+      <button class="tap r" type="button" id="next" aria-label="Следующая история"></button>
+      <div class="txt"><span class="chip" id="sChip">Песок для купания</span><h2 id="sH">Привет! Я Шуршу</h2><p id="sP">Мелкий кварцевый песок для шиншилл, дегу, хомяков, песчанок и слепушонок.</p><a class="btn" id="sBtn" href="zakaz.html" hidden>Заказать</a></div>
+    </div>
+    <div class="side r"><img id="sideR" src="img/dust.jpg" alt=""></div>
+  </div>
+  <p class="hint">Нажмите справа, чтобы листать дальше</p>
+</div>
+<div class="below"><div class="wrap">
+  <h2>Выберите объём</h2><p class="muted">Цена уже с доставкой до пункта выдачи Ozon. Купалку ставьте на 15–20 минут, слой песка 2 см.</p>
+  <div class="grid">
+    <div class="p"><img src="img/bottle.jpg" alt=""><div class="r"><b>Бутылка 3,2 кг</b><strong>389 ₽</strong></div><a class="btn" href="zakaz.html">Заказать</a></div>
+    <div class="p"><img src="img/bag.jpg" alt=""><div class="r"><b>Мешок 8 кг</b><strong>699 ₽</strong></div><a class="btn" href="zakaz.html">Заказать</a></div>
+    <div class="p"><img src="img/s1.jpg" alt=""><div class="r"><b>Набор 2 × 8 кг</b><strong><s>1 398</s>1 349 ₽</strong></div><a class="btn" href="zakaz.html">Заказать</a></div>
+  </div>
+</div></div>
+<script>
+(()=>{const S=[
+{t:'знакомство',r:'Привет',i:'img/hero.jpg',c:'Песок для купания',h:'Привет! Я Шуршу',p:'Мелкий кварцевый песок для шиншилл, дегу, хомяков, песчанок и слепушонок.'},
+{t:'без пыли',r:'Без пыли',i:'img/dust.jpg',c:'Без пыли',h:'Сыплюсь струйкой, а не облаком',p:'Зверёк дышит легко, а мебель вокруг клетки остаётся чистой.'},
+{t:'чистота',r:'Чистый',i:'img/clean.jpg',c:'Промыт и прокалён',h:'Проверьте стаканом воды',p:'Песок ляжет на дно, а вода останется прозрачной.'},
+{t:'мягкость',r:'Мягкий',i:'img/macro.jpg',c:'0,1–0,3 мм',h:'Зёрна гладкие, как галька',p:'Не царапают кожу и не ломают шерсть.'},
+{t:'как купать',r:'Купание',i:'img/s2.jpg',c:'15–20 минут',h:'Слой 2 см, 2–3 раза в неделю',p:'После купания уберите купалку и просейте песок.'},
+{t:'цены',r:'Цены',i:'img/bag.jpg',c:'389 · 699 · 1 349 ₽',h:'3,2 кг, 8 кг или 2 × 8 кг',p:'Цена уже с доставкой до пункта выдачи Ozon.',b:1}];
+const D=5000;let k=0,t0=0,raf;const bars=document.getElementById('bars'),rings=document.getElementById('rings');
+S.forEach((s,i)=>{bars.insertAdjacentHTML('beforeend','<i><b></b></i>');rings.insertAdjacentHTML('beforeend',`<button class="ring" type="button" data-i="${i}"><i><img src="${s.i}" alt=""></i>${s.r}</button>`)});
+rings.querySelectorAll('.ring').forEach(b=>b.onclick=()=>go(+b.dataset.i));
+const $=id=>document.getElementById(id);
+function show(){const s=S[k];$('sImg').src=s.i;$('sTag').textContent='· '+s.t;$('sChip').textContent=s.c;$('sH').textContent=s.h;$('sP').textContent=s.p;$('sBtn').hidden=!s.b;
+$('sideL').src=S[(k+S.length-1)%S.length].i;$('sideR').src=S[(k+1)%S.length].i;
+bars.querySelectorAll('b').forEach((b,i)=>b.style.width=i<k?'100%':'0');rings.querySelectorAll('.ring').forEach((r,i)=>r.classList.toggle('seen',i<k))}
+function go(n){k=(n+S.length)%S.length;t0=performance.now();show()}
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function tick(now){const p=Math.min(1,(now-t0)/D);bars.querySelectorAll('b')[k].style.width=(p*100)+'%';if(p>=1&&!still)go(k+1);raf=requestAnimationFrame(tick)}
+$('next').onclick=()=>go(k+1);$('prev').onclick=()=>go(k-1);
+go(0);if(!still)raf=requestAnimationFrame(tick);else bars.querySelectorAll('b')[0].style.width='100%'})();
+</script>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

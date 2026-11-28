@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Чисто</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 2 «Чисто»: минимализм как у премиальной косметики. Светлая сетка-бенто, огромное слово ШУРШУ поверх фото, тонкие таблетки-метки, товар с выносками */
+:root{
+  --bg:#f3f6fa;--card:#ffffff;--ink:#0b1630;--muted:#6b7488;--line:#d9e0ea;
+  --blue:#1c7fe0;--deep:#0a2ea6;--sky:#8adcfe;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;align-items:center;gap:10px;padding-block:18px;flex-wrap:wrap}
+.chip{border:1px solid var(--ink);border-radius:999px;padding:8px 18px;font-size:14px;text-decoration:none;background:transparent}
+.top .logo{font-weight:800;letter-spacing:.12em;font-size:15px;margin-right:auto;text-decoration:none}
+.chip.solid{background:var(--ink);color:#fff}
+.grid{display:grid;gap:12px}
+.card{background:var(--card);border-radius:28px;padding:clamp(20px,2.6vw,34px);position:relative;overflow:hidden;min-width:0}
+
+/* hero */
+.hero{border-radius:32px;overflow:hidden;position:relative;background:#0e7fe3;min-height:clamp(420px,52vw,640px)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.hero .sub{position:absolute;left:clamp(20px,4vw,56px);top:clamp(24px,4vw,56px);color:#fff;font-size:clamp(18px,2vw,26px);font-weight:400;line-height:1.2;max-width:14em;z-index:2}
+.word{position:absolute;left:0;right:0;bottom:clamp(-6px,-1vw,-10px);text-align:center;color:#fff;font-weight:800;font-size:clamp(86px,20.5vw,290px);letter-spacing:-.06em;line-height:.8;opacity:.94;z-index:1;text-shadow:0 10px 40px rgba(0,40,140,.25);white-space:nowrap}
+.word.solid{mix-blend-mode:normal;opacity:.22}
+.float{position:absolute;right:clamp(14px,3vw,40px);top:clamp(14px,3vw,40px);z-index:3;display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:22px;padding:10px 18px 10px 10px;max-width:360px}
+.float img{width:84px;height:84px;object-fit:cover;border-radius:16px}
+.float .m{display:flex;gap:6px;margin-bottom:6px}
+.float .m span{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:3px 9px;background:#fff}
+.float b{display:block;font-size:16px;font-weight:600}
+.float small{color:var(--muted);font-size:13px}
+.float strong{display:block;font-size:18px;margin-top:2px}
+.plus{width:38px;height:38px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;text-decoration:none;flex:none;font-size:20px;background:#fff}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.lab{display:inline-block;border:1px solid var(--ink);border-radius:999px;padding:6px 16px;font-size:13px;margin-bottom:22px}
+.big{font-size:clamp(22px,2.4vw,32px);line-height:1.25;font-weight:400;letter-spacing:-.015em}
+.big .g{color:#a5adbd}
+.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.tags span{background:var(--bg);border-radius:999px;padding:9px 16px;font-size:14px}
+
+/* бенто */
+.bento{display:grid;grid-template-columns:1.6fr 1fr;gap:12px}
+.bento .ph{padding:0;min-height:300px}
+.bento .ph img{width:100%;height:100%;object-fit:cover}
+.duo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.duo h3{font-weight:500;font-size:24px;letter-spacing:-.02em}
+.duo .card{display:flex;flex-direction:column;gap:60px;justify-content:space-between;min-height:260px}
+.duo p{color:var(--muted);font-size:15px}
+.n{font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+/* выноски */
+.spot{background:linear-gradient(180deg,#e9f4ff,#d3ebff);border-radius:32px;display:grid;grid-template-columns:1fr 1.2fr;align-items:center;gap:20px;padding:clamp(20px,4vw,56px);overflow:hidden}
+.spot .bot{max-width:380px;justify-self:center;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px rgba(10,46,166,.18)}
+.callouts{display:grid;gap:34px}
+.co{display:grid;grid-template-columns:90px 1fr;gap:16px;align-items:start}
+.co i{height:1px;background:var(--ink);margin-top:14px;position:relative}
+.co i::before{content:"";position:absolute;left:-4px;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.co b{font-weight:500;font-size:20px;letter-spacing:-.01em}
+.co p{color:#43506a;font-size:15px;margin-top:6px;max-width:30em}
+.spot h2,.sec h2{font-weight:400;font-size:clamp(30px,4vw,54px);letter-spacing:-.035em;line-height:1.05;margin-bottom:28px}
+.spot h2 .g,.sec h2 .g{color:#8fa0bd}
+
+/* товары */
+.sec{padding-block:clamp(44px,6vw,80px)}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.p{background:#fff;border-radius:28px;padding:14px 14px 20px;display:flex;flex-direction:column;gap:12px}
+.p .im{border-radius:20px;overflow:hidden;background:var(--bg);aspect-ratio:4/5}
+.p .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.p:hover .im img{transform:scale(1.04)}
+.p .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-inline:6px}
+.p b{font-weight:500;font-size:19px}
+.p strong{font-size:20px;font-weight:600}
+.p .d{color:var(--muted);font-size:14px;padding-inline:6px}
+.p .buy{margin:4px 6px 0;display:flex;align-items:center;justify-content:center;height:50px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:500;transition:background .2s}
+.p .buy:hover{background:var(--deep)}
+.p s{color:var(--muted);font-size:14px;font-weight:400;margin-right:6px}
+
+/* шаги */
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.steps4 .card{min-height:210px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.steps4 b{font-size:20px;font-weight:500}
+.steps4 ul{list-style:none;color:var(--muted);font-size:14px;display:grid;gap:4px}
+.steps4 li::before{content:"· "}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding-block:22px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:clamp(18px,1.8vw,22px);font-weight:400}
+.faq summary::after{content:"+";font-size:26px;line-height:.9;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--muted);margin-top:10px;max-width:46em}
+.end{background:var(--ink);color:#fff;border-radius:32px;padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:100px}
+.end h2{font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:-.04em;line-height:1}
+.end a{display:inline-flex;height:56px;align-items:center;padding:0 30px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:600}
+.end p{color:#a8b3cc;margin-top:12px}
+
+@media (max-width:900px){
+  .about,.bento,.spot{grid-template-columns:1fr}
+  .tags{justify-content:flex-start}
+  .duo,.prods{grid-template-columns:1fr}
+  .steps4{grid-template-columns:1fr 1fr}
+  .top .chip:not(.solid){display:none}
+  .float{display:none}
+  .duo .card,.steps4 .card{min-height:0;gap:18px}
+  .duo .card:last-child{aspect-ratio:4/3}
+  .hero .sub{max-width:11em}
+  .co{grid-template-columns:40px 1fr}
+}
+@media (max-width:480px){.steps4{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#">ШУРШУ</a><a class="chip" href="#about">О песке</a><a class="chip" href="#how">Как купать</a><a class="chip" href="#faq">Вопросы</a><a class="chip solid" href="#shop">Купить</a></header>
+
+  <div class="hero">
+    <img src="img/hero.jpg" alt="Шиншилла купается в белой купалке с песком">
+    <p class="sub">Кварцевый песок для купания шиншилл и других грызунов</p>
+    <div class="word" aria-hidden="true">ШУРШУ</div>
+    <div class="float">
+      <img src="img/bag.jpg" alt="">
+      <div style="flex:1;min-width:0"><div class="m"><span>мешок</span><span>без пыли</span></div><b>Песок Шуршу 8 кг</b><strong>699 ₽</strong></div>
+      <a class="plus" href="zakaz.html" aria-label="Заказать мешок 8 кг">+</a>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:12px">
+    <div class="card about" id="about">
+      <div><span class="lab">О песке</span><p class="big">Мелкий <span class="g">кварцевый песок,</span> который промыли <span class="g">и прокалили.</span> Он чистит шёрстку <span class="g">как в природе</span> и не поднимает пыль в комнате.</p></div>
+      <div class="tags"><span>шиншилла</span><span>дегу</span><span>хомяк</span><span>песчанка</span><span>слепушонок</span><span>гипоаллергенный</span><span>без запаха</span><span>0,1–0,3 мм</span></div>
+    </div>
+    <div class="bento">
+      <div class="card ph"><img src="img/who.jpg" alt="Пять видов грызунов на песке"></div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px"><h3 style="font-weight:500;font-size:26px;letter-spacing:-.02em">Почему песок, а не вода?</h3><p style="color:var(--muted)">Шерсть у шиншиллы очень густая и сохнет долго, зверёк может простыть. Сухой песок забирает лишний жир и грязь, и шёрстка снова пушистая.</p></div>
+    </div>
+    <div class="duo">
+      <div class="card"><span class="n">Свойство</span><div><h3>Без пыли</h3><p>Насыпается ровной струйкой, мебель остаётся чистой.</p></div></div>
+      <div class="card"><span class="n">Свойство</span><div><h3>Чистый</h3><p>В стакане с водой ложится на дно, вода прозрачная.</p></div></div>
+      <div class="card" style="padding:0"><img src="img/macro.jpg" alt="Зёрна под увеличением" style="width:100%;height:100%;object-fit:cover"></div>
+    </div>
+  </div>
+
+  <section class="sec"><div class="spot">
+    <div class="bot"><img src="img/bottle.jpg" alt="Бутылка Шуршу 3,2 кг и шиншилла"></div>
+    <div>
+      <h2>Бутылка 3,2 кг <span class="g">продумана до мелочей</span></h2>
+      <div class="callouts">
+        <div class="co"><i></i><div><b>Прозрачная стенка</b><p>Видно, сколько песка осталось и когда пора заказывать ещё.</p></div></div>
+        <div class="co"><i></i><div><b>Крышка закрывается</b><p>Внутрь не попадает влага, пыль и запахи из комнаты.</p></div></div>
+        <div class="co"><i></i><div><b>Тальк в подарок</b><p>Пакетик талька лежит внутри бутылки.</p></div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="shop" style="padding-top:0">
+    <h2>Купить <span class="g">с доставкой в пункт выдачи Ozon</span></h2>
+    <div class="prods">
+      <div class="p"><div class="im"><img src="img/bottle.jpg" alt=""></div><div class="row"><b>Бутылка 3,2 кг</b><strong>389 ₽</strong></div><p class="d">Одной шиншилле или дегу надолго</p><a class="buy" href="zakaz.html">Заказать</a></div>
+      <div class="p"><div class="im"><img src="img/bag.jpg" alt=""></div><div class="row"><b>Мешок 8 кг</b><strong>699 ₽</strong></div><p class="d">Самый выгодный килограмм</p><a class="buy" href="zakaz.html">Заказать</a></div>
+      <div class="p"><div class="im"><img src="img/s2.jpg" alt=""></div><div class="row"><b>Набор 2 × 8 кг</b><strong><s>1 398 ₽</s>1 349 ₽</strong></div><p class="d">Запас для нескольких зверьков</p><a class="buy" href="zakaz.html">Заказать</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="how" style="padding-top:0">
+    <h2>Как купать <span class="g">в четыре шага</span></h2>
+    <div class="steps4">
+      <div class="card"><span class="n">Шаг 1</span><div><b>Насыпьте</b><ul><li>слой 2 см</li><li>только сухой песок</li></ul></div></div>
+      <div class="card"><span class="n">Шаг 2</span><div><b>Дайте покупаться</b><ul><li>15–20 минут</li><li>2–3 раза в неделю</li></ul></div></div>
+      <div class="card"><span class="n">Шаг 3</span><div><b>Уберите купалку</b><ul><li>не оставляйте на день</li><li>иначе станет туалетом</li></ul></div></div>
+      <div class="card"><span class="n">Шаг 4</span><div><b>Просейте</b><ul><li>уберите комочки</li><li>потемнел — насыпьте свежий</li></ul></div></div>
+    </div>
+  </section>
+
+  <section class="sec faq-wrap" id="faq" style="padding-top:0">
+    <h2>Вопросы</h2>
+    <div class="faq">
+      <details><summary>Почему песок немного блестит?</summary><p>Это кварц. Зёрна светлые и полупрозрачные, поэтому на свету слегка блестят. Так и должно быть.</p></details>
+      <details><summary>Что за пакетик в бутылке 3,2 кг?</summary><p>Это тальк, наш подарок к песку.</p></details>
+      <details><summary>Можно ли купать шиншиллу в воде?</summary><p>Нет. Шерсть у шиншиллы густая и долго сохнет, зверёк может простыть.</p></details>
+      <details><summary>Как я получу заказ?</summary><p>Оплачиваете на сайте и указываете пункт выдачи Ozon. Забираете по номеру телефона.</p></details>
+    </div>
+  </section>
+
+  <div class="end"><div><h2>Пусть пошуршит</h2><p>Песок с доставкой в пункт выдачи рядом с домом</p></div><a href="zakaz.html">Оформить заказ</a></div>
+</div>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

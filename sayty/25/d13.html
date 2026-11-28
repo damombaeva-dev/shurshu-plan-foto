@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Альбом</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 13 «Альбом»: тёплый семейный альбом хозяйки шиншиллы. Фото-полароиды на скотче, рукописные заметки, стрелки от руки */
+:root{--paper:#f7fbff;--line:#dbe9f7;--ink:#14224d;--pen:#0a4fd0;--muted:#5d6b8c;--tape:rgba(255,235,170,.85);--sand:#f6e7c6;--sky:#bfe4ff;--white:#fff;
+--hand:"Caveat","Comic Sans MS",cursive;--font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--paper);background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 34px;color:var(--ink);line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hand{font-family:var(--hand);font-weight:700;color:var(--pen)}
+.top{display:flex;align-items:center;justify-content:space-between;padding-block:20px}
+.logo{font-family:var(--hand);font-weight:700;font-size:40px;text-decoration:none;color:var(--pen);line-height:1}
+.btn{display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 26px;border-radius:999px;background:var(--pen);color:#fff;text-decoration:none;font-weight:600;transition:transform .2s}
+.btn:hover{transform:rotate(-2deg) scale(1.03)}
+.pol{background:var(--white);padding:12px 12px 16px;box-shadow:0 14px 30px rgba(20,40,90,.16);position:relative;transition:transform .3s}
+.pol:hover{transform:rotate(0) scale(1.02)!important;z-index:3}
+.pol img{aspect-ratio:1;object-fit:cover;width:100%}
+.pol figcaption{font-family:var(--hand);font-size:24px;text-align:center;margin-top:8px;line-height:1.1}
+.pol::before{content:"";position:absolute;width:110px;height:30px;background:var(--tape);left:50%;top:-14px;transform:translateX(-50%) rotate(-4deg);box-shadow:0 2px 4px rgba(0,0,0,.06)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding-block:clamp(20px,4vw,50px)}
+.hero h1{font-family:var(--hand);font-weight:700;font-size:clamp(56px,8vw,118px);line-height:.9;color:var(--ink)}
+.hero h1 u{text-decoration:none;background:linear-gradient(transparent 62%,var(--sky) 62%)}
+.hero p{font-size:18px;margin:18px 0 26px;max-width:28em}
+.stack{position:relative;height:clamp(380px,44vw,520px)}
+.stack .pol{position:absolute;width:58%}
+.s1{left:4%;top:6%;transform:rotate(-6deg)}
+.s2{right:2%;top:0;transform:rotate(5deg);width:46%!important}
+.s3{right:10%;bottom:0;transform:rotate(-2deg);width:44%!important}
+.note{position:absolute;left:0;bottom:4%;background:var(--sand);padding:14px 18px;font-family:var(--hand);font-size:26px;line-height:1.05;transform:rotate(-3deg);box-shadow:0 10px 20px rgba(0,0,0,.08);z-index:2;max-width:200px}
+.arrow{position:absolute;width:120px;color:var(--pen)}
+section{padding-block:clamp(40px,6vw,80px)}
+.h2{font-family:var(--hand);font-weight:700;font-size:clamp(46px,6vw,76px);line-height:1;color:var(--ink)}
+.h2 small{display:block;font-family:var(--font);font-size:16px;font-weight:400;color:var(--muted);margin-top:8px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,40px);margin-top:34px}
+.board .pol:nth-child(1){transform:rotate(-3deg)}.board .pol:nth-child(2){transform:rotate(2deg);margin-top:30px}.board .pol:nth-child(3){transform:rotate(-1deg)}
+.board p{font-size:15px;color:var(--muted);text-align:center;margin-top:4px}
+.list{background:var(--white);padding:clamp(22px,4vw,44px);box-shadow:0 14px 30px rgba(20,40,90,.1);transform:rotate(-.6deg);max-width:760px;margin:30px auto 0;position:relative}
+.list::before{content:"";position:absolute;left:44px;top:0;bottom:0;border-left:2px solid #f3b6b6}
+.list ol{list-style:none;counter-reset:s;display:grid;gap:14px;padding-left:44px}
+.list li{counter-increment:s;font-size:18px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.list li::before{content:counter(s)".";font-family:var(--hand);font-size:34px;font-weight:700;color:var(--pen);min-width:30px}
+.list li i{font-family:var(--hand);font-style:normal;color:var(--pen);font-size:24px;margin-left:6px}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,36px);margin-top:36px}
+.card{background:var(--white);padding:14px;box-shadow:0 14px 30px rgba(20,40,90,.14);display:flex;flex-direction:column;gap:10px;position:relative}
+.card:nth-child(1){transform:rotate(-1.5deg)}.card:nth-child(2){transform:rotate(1deg)}.card:nth-child(3){transform:rotate(-.5deg)}
+.card img{aspect-ratio:1;object-fit:cover;width:100%}
+.card h3{font-family:var(--hand);font-size:32px;line-height:1}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.card .pr{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card .price{font-family:var(--hand);font-size:42px;font-weight:700;color:var(--pen);line-height:1}
+.card .price s{font-size:24px;color:var(--muted)}
+.card .sticker{position:absolute;top:-16px;right:6px;width:86px;height:86px;border-radius:50%;background:var(--sand);display:grid;place-items:center;text-align:center;font-family:var(--hand);font-size:20px;line-height:1;transform:rotate(12deg);box-shadow:0 6px 14px rgba(0,0,0,.1)}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.faq div{background:var(--sand);padding:18px 22px;box-shadow:0 8px 18px rgba(0,0,0,.06)}
+.faq div:nth-child(odd){transform:rotate(-1deg)}.faq div:nth-child(even){transform:rotate(1deg);background:var(--sky)}
+.faq b{font-family:var(--hand);font-size:28px;display:block;line-height:1.1}
+.end{text-align:center;padding-block:30px 120px}
+@media (max-width:860px){.hero,.board,.shop,.faq{grid-template-columns:1fr}.board .pol:nth-child(2){margin-top:0}.stack{height:420px}.arrow{display:none}}
+@media (prefers-reduced-motion:reduce){.pol,.btn{transition:none}}
+</style></head><body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#">Шуршу</a><a class="btn" href="zakaz.html">Заказать</a></header>
+  <div class="hero">
+    <div><span class="hand" style="font-size:28px">дневник купания</span><h1>Наш любимый <u>песочек</u></h1><p>Мелкий кварцевый песок для шиншилл, дегу, хомяков, песчанок и слепушонок. Не пылит, промыт и прокалён.</p><a class="btn" href="#shop">Выбрать объём</a></div>
+    <div class="stack">
+      <figure class="pol s1"><img src="img/chin.jpg" alt="Шиншилла" style="object-position:50% 25%"><figcaption>Это Пушок</figcaption></figure>
+      <figure class="pol s2"><img src="img/s2.jpg" alt="Дегу купается"><figcaption>Купается!</figcaption></figure>
+      <figure class="pol s3"><img src="img/macro.jpg" alt="Зёрна песка"><figcaption>Зёрнышки гладкие</figcaption></figure>
+      <div class="note">Пыли нет, проверено ✓</div>
+    </div>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <h2 class="h2">Почему мы его любим<small>Три фотографии, которые всё объясняют</small></h2>
+  <div class="board">
+    <div><figure class="pol"><img src="img/dust.jpg" alt="Песок без пыли"><figcaption>Сыплется без пыли</figcaption></figure><p>Зверёк дышит легко, мебель чистая</p></div>
+    <div><figure class="pol"><img src="img/clean.jpg" alt="Песок в воде" style="object-position:50% 65%"><figcaption>Вода прозрачная</figcaption></figure><p>Песок промыт и прокалён</p></div>
+    <div><figure class="pol"><img src="img/who.jpg" alt="Грызуны"><figcaption>Подходит всем</figcaption></figure><p>Шиншилла, дегу, хомяк, песчанка</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2 class="h2" style="text-align:center">Как купать</h2>
+  <div class="list"><ol>
+    <li>Насыпать в купалку слой 2 см <i>не больше!</i></li>
+    <li>Поставить в клетку на 15–20 минут <i>2–3 раза в неделю</i></li>
+    <li>Убрать купалку после купания <i>а то будет туалет</i></li>
+    <li>Просеять песок и использовать снова</li>
+  </ol></div>
+</div></section>
+
+<section id="shop" style="padding-top:0"><div class="wrap">
+  <h2 class="h2">Что заказать<small>Цена уже с доставкой до пункта выдачи Ozon</small></h2>
+  <div class="shop">
+    <div class="card"><span class="sticker">тальк в подарок</span><img src="img/bottle.jpg" alt=""><h3>Бутылка 3,2 кг</h3><p>Одной шиншилле надолго.</p><div class="pr"><span class="price">389 ₽</span><a class="btn" href="zakaz.html">Заказать</a></div></div>
+    <div class="card"><span class="sticker">выгоднее</span><img src="img/bag.jpg" alt=""><h3>Мешок 8 кг</h3><p>Самый выгодный килограмм.</p><div class="pr"><span class="price">699 ₽</span><a class="btn" href="zakaz.html">Заказать</a></div></div>
+    <div class="card"><span class="sticker">запас</span><img src="img/s1.jpg" alt=""><h3>Два мешка по 8 кг</h3><p>Для нескольких зверьков.</p><div class="pr"><span class="price"><s>1 398</s> 1 349 ₽</span><a class="btn" href="zakaz.html">Заказать</a></div></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2 class="h2">Записки на полях</h2>
+  <div class="faq">
+    <div><b>Почему блестит?</b>Это кварц. Зёрна полупрозрачные и на свету блестят.</div>
+    <div><b>Что за пакетик?</b>В бутылке 3,2 кг — тальк, подарок к песку.</div>
+    <div><b>Можно водой?</b>Нет. Густая шерсть долго сохнет, зверёк простынет.</div>
+    <div><b>Как забрать?</b>Оплатите на сайте и заберите в пункте выдачи Ozon.</div>
+  </div>
+</div></section>
+<div class="end"><a class="btn" href="zakaz.html">Оформить заказ</a></div>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

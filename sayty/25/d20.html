@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Вечер купания</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 20 «Вечер купания»: один вечер по минутам. Слева фото закреплено и меняется, справа лента времени 19:00 → 19:25 */
+:root{--bg:#ffffff;--ink:#0b1638;--muted:#62708f;--blue:#1767e6;--deep:#0a2478;--sky:#e6f3ff;--line:#cfe0f5;--sand:#f3e3bf;
+--disp:"Montserrat",system-ui,sans-serif;--font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--disp);font-weight:800;letter-spacing:-.035em;line-height:1}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:16px;background:var(--blue);color:#fff;text-decoration:none;font-family:var(--disp);font-weight:700}
+.btn.w{background:#fff;color:var(--deep)}
+.intro{background:linear-gradient(160deg,var(--deep),var(--blue));color:#fff;margin-top:calc(-1 * env(safe-area-inset-top,0px));padding-top:calc(env(safe-area-inset-top,0px) + 20px);padding-bottom:clamp(50px,7vw,90px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--disp);font-weight:800;font-size:22px;text-decoration:none}
+.intro .g{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:end;margin-top:clamp(40px,6vw,80px)}
+.intro h1{font-size:clamp(44px,6.6vw,96px)}
+.intro h1 span{color:var(--sand)}
+.intro p{font-size:18px;opacity:.9;max-width:30em;margin-top:18px}
+.clockbig{font-family:var(--disp);font-weight:800;font-size:clamp(70px,11vw,170px);letter-spacing:-.06em;line-height:.85;text-align:right;opacity:.95}
+.clockbig small{display:block;font-size:16px;letter-spacing:0;font-weight:500;opacity:.8;margin-top:10px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);padding-block:clamp(50px,7vw,90px)}
+.pin{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;border-radius:32px;overflow:hidden;aspect-ratio:4/5;background:var(--sky)}
+.pin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.pin img.on{opacity:1}
+.pin .t{position:absolute;left:16px;top:16px;background:#fff;border-radius:999px;padding:8px 16px;font-family:var(--disp);font-weight:800;z-index:2}
+.line{position:relative;padding-left:36px}
+.line::before{content:"";position:absolute;left:9px;top:10px;bottom:10px;width:3px;background:var(--line);border-radius:3px}
+.ev{position:relative;min-height:56vh;padding-block:10px 40px}
+.ev::before{content:"";position:absolute;left:-34px;top:16px;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--line);transition:all .3s}
+.ev.on::before{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 6px var(--sky)}
+.ev time{font-family:var(--disp);font-weight:800;font-size:clamp(40px,5vw,64px);color:var(--blue);letter-spacing:-.04em;line-height:1}
+.ev h3{font-size:clamp(24px,2.6vw,32px);margin:10px 0 10px}
+.ev p{color:var(--muted);font-size:17px;max-width:30em}
+.ev .tip{display:inline-block;margin-top:14px;background:var(--sand);border-radius:12px;padding:8px 14px;font-size:15px}
+.ev .mob{display:none;border-radius:24px;margin-top:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.props{background:var(--sky);padding-block:clamp(50px,7vw,90px)}
+.props .g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.pp{background:#fff;border-radius:28px;padding:24px}
+.pp b{font-family:var(--disp);font-size:44px;font-weight:800;color:var(--blue);letter-spacing:-.04em;display:block;line-height:1}
+.pp h3{font-size:22px;margin:12px 0 6px}
+.pp p{color:var(--muted)}
+h2{font-size:clamp(34px,4.6vw,60px)}
+.shop{padding-block:clamp(50px,7vw,90px)}
+.rows{display:grid;gap:14px;margin-top:30px}
+.row{display:grid;grid-template-columns:140px 1fr auto auto;gap:24px;align-items:center;border:2px solid var(--line);border-radius:28px;padding:12px 20px 12px 12px;transition:border-color .2s}
+.row:hover{border-color:var(--blue)}
+.row img{width:140px;height:140px;border-radius:20px;object-fit:cover}
+.row h3{font-size:24px}
+.row p{color:var(--muted)}
+.row strong{font-family:var(--disp);font-size:34px;font-weight:800;letter-spacing:-.04em;white-space:nowrap}
+.row s{font-size:16px;color:var(--muted);font-weight:500;margin-right:6px}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;margin-top:40px;padding-bottom:120px}
+.qa b{font-family:var(--disp);font-weight:700;display:block}
+.qa p{color:var(--muted)}
+@media (max-width:860px){.intro .g,.story,.props .g,.qa{grid-template-columns:1fr}.clockbig{text-align:left}.pin{display:none}.ev{min-height:0}.ev .mob{display:block}.row{grid-template-columns:90px 1fr;gap:14px}.row img{width:90px;height:90px}.row strong{grid-column:2}.row .btn{grid-column:1/-1;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.pin img,.ev::before{transition:none}}
+</style></head><body>
+<header class="intro"><div class="wrap">
+  <nav class="nav"><a class="logo" href="#">Шуршу</a><a class="btn w" href="zakaz.html">Заказать</a></nav>
+  <div class="g"><div><h1>Один вечер <span>с песком</span> Шуршу</h1><p>Как правильно купать шиншиллу, дегу, хомяка или песчанку. По минутам, на примере одного вечера.</p></div><div class="clockbig">19:00<small>начинаем купание</small></div></div>
+</div></header>
+
+<div class="wrap story">
+  <div class="pin"><span class="t" id="pt">19:00</span><img class="on" src="img/dust.jpg" alt="Песок насыпают"><img src="img/s2.jpg" alt="Дегу купается"><img src="img/hero.jpg" alt="Шиншилла в песке" style="object-position:72% 50%"><img src="img/s3.jpg" alt="Хомяк у пустой купалки"><img src="img/s4.jpg" alt="Песок просеивают"></div>
+  <div class="line">
+    <div class="ev on" data-i="0" data-t="19:00"><time>19:00</time><h3>Насыпаем 2 см</h3><p>Берём купалку и насыпаем слой песка около 2 см. Шуршу сыплется ровной струйкой, облака пыли нет.</p><span class="tip">Только сухой песок, никакой воды</span><img class="mob" src="img/dust.jpg" alt=""></div>
+    <div class="ev" data-i="1" data-t="19:01"><time>19:01</time><h3>Шуршим!</h3><p>Ставим купалку в клетку. Зверёк катается, встряхивается, и песок забирает лишний жир и грязь с шёрстки.</p><img class="mob" src="img/s2.jpg" alt=""></div>
+    <div class="ev" data-i="2" data-t="19:10"><time>19:10</time><h3>Песок работает</h3><p>Зёрна 0,1–0,3 мм проходят сквозь густой мех до кожи. Они гладкие и не царапают.</p><span class="tip">Промыт и прокалён</span><img class="mob" src="img/hero.jpg" alt=""></div>
+    <div class="ev" data-i="3" data-t="19:20"><time>19:20</time><h3>Убираем купалку</h3><p>Через 15–20 минут купалку убираем. Если оставить на весь день, зверёк сделает из неё туалет.</p><img class="mob" src="img/s3.jpg" alt=""></div>
+    <div class="ev" data-i="4" data-t="19:25"><time>19:25</time><h3>Просеиваем</h3><p>Убираем комочки через ситечко, и песок готов к следующему разу. Потемнел — насыпаем свежий.</p><span class="tip">Следующее купание через 2–3 дня</span><img class="mob" src="img/s4.jpg" alt=""></div>
+  </div>
+</div>
+
+<section class="props"><div class="wrap">
+  <h2>Почему именно Шуршу</h2>
+  <div class="g">
+    <div class="pp"><b>0</b><h3>облаков пыли</h3><p>Сыплется ровной струйкой. Мебель чистая, зверёк дышит легко.</p></div>
+    <div class="pp"><b>1</b><h3>стакан воды</h3><p>Насыпьте песок в воду: она останется прозрачной.</p></div>
+    <div class="pp"><b>0,1–0,3</b><h3>мм зерно</h3><p>Мелкое и окатанное, как галька.</p></div>
+  </div>
+</div></section>
+
+<section class="shop"><div class="wrap">
+  <h2>Песок на много вечеров</h2>
+  <div class="rows">
+    <div class="row"><img src="img/bottle.jpg" alt=""><div><h3>Бутылка 3,2 кг</h3><p>Одному зверьку надолго. Тальк в подарок.</p></div><strong>389 ₽</strong><a class="btn" href="zakaz.html">Заказать</a></div>
+    <div class="row"><img src="img/bag.jpg" alt=""><div><h3>Мешок 8 кг</h3><p>Самый выгодный килограмм.</p></div><strong>699 ₽</strong><a class="btn" href="zakaz.html">Заказать</a></div>
+    <div class="row"><img src="img/s1.jpg" alt=""><div><h3>Набор 2 × 8 кг</h3><p>Запас для нескольких зверьков.</p></div><strong><s>1 398</s>1 349 ₽</strong><a class="btn" href="zakaz.html">Заказать</a></div>
+  </div>
+  <p style="color:var(--muted);margin-top:14px">Цена уже с доставкой до пункта выдачи Ozon</p>
+  <div class="qa">
+    <div><b>Почему песок блестит?</b><p>Это кварц, зёрна полупрозрачные.</p></div>
+    <div><b>Что за пакетик в бутылке?</b><p>Тальк, наш подарок к песку.</p></div>
+    <div><b>Можно купать в воде?</b><p>Нет. Густая шерсть долго сохнет.</p></div>
+    <div><b>Как получить заказ?</b><p>В пункте выдачи Ozon по номеру телефона.</p></div>
+  </div>
+</div></section>
+<script>
+(()=>{const evs=document.querySelectorAll('.ev'),imgs=document.querySelectorAll('.pin img'),pt=document.getElementById('pt');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;evs.forEach(x=>x.classList.toggle('on',x===e.target));imgs.forEach((im,k)=>im.classList.toggle('on',k===i));pt.textContent=e.target.dataset.t}),{rootMargin:'-45% 0px -45% 0px'});
+evs.forEach(e=>io.observe(e))})();
+</script>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

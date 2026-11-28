@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Сетка</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;800;900&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 14 «Сетка»: швейцарский плакатный стиль. Строгая сетка из 12 колонок, тонкие линии, огромный шрифт, один синий цвет */
+:root{--bg:#ffffff;--ink:#0a0f1f;--blue:#0047ff;--soft:#eef3ff;--muted:#5c6478;--rule:#0a0f1f;
+--font:"Inter Tight","Helvetica Neue",Arial,system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.g{display:grid;grid-template-columns:repeat(12,1fr);column-gap:20px}
+.top{padding-block:16px;border-bottom:2px solid var(--rule);align-items:center}
+.top b{grid-column:span 3;font-weight:900;font-size:18px;letter-spacing:-.02em}
+.top span{grid-column:span 5;font-size:14px;color:var(--muted)}
+.top nav{grid-column:span 4;display:flex;justify-content:flex-end;gap:20px;font-size:14px;font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:last-child{color:var(--blue)}
+.hero{padding-block:24px 0}
+.hero h1{grid-column:1/-1;font-weight:900;font-size:clamp(80px,21vw,320px);letter-spacing:-.075em;line-height:.78;color:var(--blue);margin-left:-.04em}
+.hero .meta{grid-column:span 3;padding-top:20px;border-top:2px solid var(--rule);margin-top:24px;font-size:15px}
+.hero .meta b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.hero .img{grid-column:span 6;grid-row:span 2;margin-top:24px}
+.hero .img img{aspect-ratio:4/3;object-fit:cover;width:100%;object-position:72% 50%}
+.hero .lead{grid-column:span 3;margin-top:24px;padding-top:20px;border-top:2px solid var(--rule);font-size:clamp(20px,2vw,26px);font-weight:500;letter-spacing:-.02em;line-height:1.15}
+.cta{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;height:60px;padding:0 22px;background:var(--blue);color:#fff;text-decoration:none;font-weight:800;font-size:17px;margin-top:20px;min-width:220px;transition:background .2s}
+.cta:hover{background:var(--ink)}
+.sec{padding-block:clamp(50px,7vw,100px);border-bottom:2px solid var(--rule)}
+.label{grid-column:span 3;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.sec h2{grid-column:span 9;font-weight:800;font-size:clamp(36px,5.4vw,80px);letter-spacing:-.05em;line-height:.92}
+.nums{grid-column:4/-1;display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:2px solid var(--rule)}
+.nums div{padding:18px 18px 0 0}
+.nums b{display:block;font-weight:900;font-size:clamp(48px,7vw,110px);letter-spacing:-.06em;line-height:.85;color:var(--blue)}
+.nums span{font-size:15px;color:var(--muted);display:block;margin-top:10px}
+.props{grid-column:4/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.props div{border-top:2px solid var(--rule);padding-top:14px;display:flex;flex-direction:column;gap:12px}
+.props img{aspect-ratio:3/4;object-fit:cover;width:100%;filter:grayscale(.15)}
+.props h3{font-size:26px;font-weight:800;letter-spacing:-.03em}
+.props p{color:var(--muted);font-size:15px}
+.steps{grid-column:4/-1;margin-top:40px}
+.steps div{display:grid;grid-template-columns:80px 1fr 1fr;gap:20px;padding-block:18px;border-top:2px solid var(--rule);align-items:baseline}
+.steps div:last-child{border-bottom:2px solid var(--rule)}
+.steps i{font-style:normal;font-weight:900;font-size:40px;color:var(--blue);letter-spacing:-.04em}
+.steps b{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.steps span{color:var(--muted)}
+.index{grid-column:4/-1;margin-top:40px}
+.row{display:grid;grid-template-columns:110px 1.4fr 1fr auto;gap:20px;align-items:center;padding-block:14px;border-top:2px solid var(--rule)}
+.row:last-child{border-bottom:2px solid var(--rule)}
+.row img{width:110px;height:110px;object-fit:cover}
+.row h3{font-size:clamp(22px,2.4vw,32px);font-weight:800;letter-spacing:-.03em}
+.row p{color:var(--muted);font-size:15px}
+.row strong{font-size:clamp(28px,3vw,40px);font-weight:900;letter-spacing:-.04em}
+.row s{font-size:16px;color:var(--muted);font-weight:500;margin-right:8px}
+.row .cta{margin-top:0;min-width:0;height:52px}
+.row:hover{background:var(--soft)}
+.qa{grid-column:4/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:40px}
+.qa div{border-top:2px solid var(--rule);padding-block:16px 22px}
+.qa b{font-size:18px;font-weight:800;display:block;margin-bottom:4px}
+.qa p{color:var(--muted)}
+.foot{padding-block:24px 120px;font-size:14px;color:var(--muted)}
+@media (max-width:900px){
+  .g{grid-template-columns:1fr}
+  .top span{display:none}.top nav{justify-content:flex-start}
+  .hero .meta,.hero .img,.hero .lead,.label,.sec h2,.nums,.props,.steps,.index,.qa{grid-column:1/-1}
+  .label{margin-bottom:12px}
+  .nums,.props,.qa{grid-template-columns:1fr}
+  .row{grid-template-columns:80px 1fr;gap:12px}.row img{width:80px;height:80px}.row p{display:none}.row strong{grid-column:2}.row .cta{grid-column:1/-1}
+  .steps div{grid-template-columns:50px 1fr}.steps span{grid-column:2}
+}
+</style></head><body>
+<div class="wrap">
+  <header class="g top"><b>Шуршу</b><span>Кварцевый песок для купания грызунов</span><nav><a href="#props">Песок</a><a href="#how">Купание</a><a href="#shop">Заказать</a></nav></header>
+  <div class="g hero">
+    <h1>Шуршу</h1>
+    <div class="meta"><b>Для кого</b>Шиншиллы, дегу, хомяки, песчанки, слепушонки</div>
+    <div class="img"><img src="img/hero.jpg" alt="Шиншилла купается в песке"></div>
+    <div class="lead">Песок для купания. Без пыли, промыт и прокалён.<br><a class="cta" href="#shop">Выбрать объём <span>→</span></a></div>
+    <div class="meta"><b>Доставка</b>В пункт выдачи Ozon. Цена уже с доставкой</div>
+    <div class="meta" style="border-top-color:transparent"></div>
+  </div>
+</div>
+
+<div class="wrap"><section class="g sec" id="props">
+  <span class="label">01 Песок</span><h2>Мелкий, чистый, мягкий. Как в природе, только лучше.</h2>
+  <div class="nums"><div><b>0,1</b><span>мм — самые мелкие зёрна</span></div><div><b>0,3</b><span>мм — самые крупные</span></div><div><b>2 см</b><span>слой в купалке</span></div></div>
+  <div class="props">
+    <div><img src="img/dust.jpg" alt="Песок без пыли"><h3>Без пыли</h3><p>Сыплется ровной струйкой.</p></div>
+    <div><img src="img/clean.jpg" alt="Песок в воде" style="object-position:50% 70%"><h3>Чистый</h3><p>Промыт и прокалён. Вода в стакане прозрачная.</p></div>
+    <div><img src="img/macro.jpg" alt="Зёрна"><h3>Мягкий</h3><p>Окатанные зёрна не царапают кожу.</p></div>
+  </div>
+</section></div>
+
+<div class="wrap"><section class="g sec" id="how">
+  <span class="label">02 Купание</span><h2>Четыре шага. Без воды.</h2>
+  <div class="steps">
+    <div><i>1</i><b>Насыпьте</b><span>Слой 2 см в купалку</span></div>
+    <div><i>2</i><b>Подождите</b><span>15–20 минут, 2–3 раза в неделю</span></div>
+    <div><i>3</i><b>Уберите</b><span>Иначе купалка станет туалетом</span></div>
+    <div><i>4</i><b>Просейте</b><span>И используйте снова</span></div>
+  </div>
+</section></div>
+
+<div class="wrap"><section class="g sec" id="shop">
+  <span class="label">03 Заказать</span><h2>Три объёма. Цена с доставкой.</h2>
+  <div class="index">
+    <div class="row"><img src="img/bottle.jpg" alt=""><div><h3>Бутылка 3,2 кг</h3><p>Одной шиншилле надолго. Тальк в подарок.</p></div><strong>389 ₽</strong><a class="cta" href="zakaz.html">Заказать →</a></div>
+    <div class="row"><img src="img/bag.jpg" alt=""><div><h3>Мешок 8 кг</h3><p>Самый выгодный килограмм.</p></div><strong>699 ₽</strong><a class="cta" href="zakaz.html">Заказать →</a></div>
+    <div class="row"><img src="img/s1.jpg" alt=""><div><h3>Набор 2 × 8 кг</h3><p>Запас для нескольких зверьков.</p></div><strong><s>1 398</s>1 349 ₽</strong><a class="cta" href="zakaz.html">Заказать →</a></div>
+  </div>
+</section></div>
+
+<div class="wrap"><section class="g sec">
+  <span class="label">04 Вопросы</span><h2>Коротко.</h2>
+  <div class="qa">
+    <div><b>Почему блестит?</b><p>Это кварц. Зёрна полупрозрачные.</p></div>
+    <div><b>Что за пакетик в бутылке?</b><p>Тальк, наш подарок к песку.</p></div>
+    <div><b>Можно купать в воде?</b><p>Нет. Густая шерсть долго сохнет.</p></div>
+    <div><b>Как забрать заказ?</b><p>В пункте выдачи Ozon по телефону.</p></div>
+  </div>
+</section></div>
+<div class="wrap foot">Шуршу · кварцевый песок для купания грызунов</div>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

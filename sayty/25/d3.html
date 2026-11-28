@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Вырез</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 3 «Вырез»: крупные фото, в которые «врезаны» белые плашки с заголовком (вогнутые углы), широкий жирный шрифт, заголовки разделов в контурной таблетке */
+:root{
+  --bg:#f5f8fc;--paper:#ffffff;--ink:#0a1a44;--muted:#56648a;--blue:#0a49d6;--deep:#082a8f;--sky:#d9ecff;--line:#0a1a44;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:28px;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,.disp{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+
+.top{display:flex;align-items:center;gap:22px;padding-block:18px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:18px}
+.logo i{width:40px;height:40px;border-radius:12px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:16px}
+.top nav{display:flex;gap:24px;margin-left:auto;font-size:15px}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+.cta{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;border-radius:999px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;transition:background .2s}
+.cta:hover{background:var(--deep)}
+.cta.w{background:#fff;color:var(--ink)}
+
+/* фото с вырезом */
+.cut{position:relative;border-radius:var(--r);overflow:hidden;background:var(--sky)}
+.cut>img{width:100%;height:100%;object-fit:cover}
+.tab{position:absolute;background:var(--bg);color:var(--ink)}
+.tab.tl{left:0;top:0;padding:0 26px 18px 0;border-bottom-right-radius:var(--r)}
+.tab.tl::before,.tab.tl::after{content:"";position:absolute;width:var(--r);height:var(--r);background:radial-gradient(circle at 100% 100%,transparent var(--r),var(--bg) calc(var(--r) + .5px))}
+.tab.tl::before{right:calc(-1 * var(--r));top:0}
+.tab.tl::after{left:0;bottom:calc(-1 * var(--r))}
+.tab.br{right:0;bottom:0;padding:18px 0 0 22px;border-top-left-radius:var(--r)}
+.tab.br::before,.tab.br::after{content:"";position:absolute;width:var(--r);height:var(--r);background:radial-gradient(circle at 0 0,transparent var(--r),var(--bg) calc(var(--r) + .5px))}
+.tab.br::before{left:calc(-1 * var(--r));bottom:0}
+.tab.br::after{right:0;top:calc(-1 * var(--r))}
+.on-paper .tab{background:var(--paper)}
+.on-paper .tab.tl::before,.on-paper .tab.tl::after{background:radial-gradient(circle at 100% 100%,transparent var(--r),var(--paper) calc(var(--r) + .5px))}
+.on-paper .tab.br::before,.on-paper .tab.br::after{background:radial-gradient(circle at 0 0,transparent var(--r),var(--paper) calc(var(--r) + .5px))}
+
+.hero .cut{height:clamp(440px,52vw,620px)}
+.hero h1{font-size:clamp(34px,6.2vw,84px);padding-left:4px}
+.hero .br{max-width:440px}
+.hero .br p{font-size:16px;color:var(--muted);margin-bottom:14px}
+.hero .br p b{color:var(--ink)}
+
+.pillh{border:1.5px solid var(--line);border-radius:999px;padding:16px 24px;text-align:center;font-size:clamp(20px,2.6vw,30px);margin-block:clamp(48px,7vw,90px) 28px}
+
+/* для кого */
+.who{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.who .cut{aspect-ratio:3/4}
+.who .tab{font-family:var(--display);font-weight:600;font-size:15px;text-transform:uppercase}
+.who .tab.br{padding:14px 4px 4px 18px}
+
+/* о песке */
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.about h2{font-size:clamp(28px,3.6vw,46px);margin-bottom:18px}
+.about p{color:var(--muted);font-size:17px;max-width:34em}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.facts div{background:var(--paper);border-radius:20px;padding:16px}
+.facts b{display:block;font-family:var(--display);font-size:clamp(18px,2vw,24px);color:var(--blue)}
+.facts span{font-size:13px;color:var(--muted)}
+
+/* почему */
+.why{display:grid;gap:14px}
+.wrow{display:grid;grid-template-columns:1fr 1.4fr;gap:14px;align-items:stretch}
+.wrow:nth-child(even){grid-template-columns:1.4fr 1fr}
+.wrow:nth-child(even) .wt{order:2}
+.wt{background:var(--paper);border-radius:var(--r);padding:clamp(22px,3vw,38px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.wt h3{font-size:clamp(22px,2.4vw,30px)}
+.wt p{color:var(--muted)}
+.wrow .cut{min-height:320px}
+.wrow .cut>img{position:absolute;inset:0}
+
+/* товары */
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.item{background:var(--paper);border-radius:var(--r);padding:10px;display:flex;flex-direction:column}
+.item .cut{aspect-ratio:1}
+.item .tab.br{font-family:var(--display);font-size:22px;font-weight:800;padding:12px 6px 6px 16px}
+.item .tab.br s{font-family:var(--font);font-size:14px;font-weight:400;color:var(--muted);display:block}
+.item .body{padding:16px 10px 10px;display:flex;flex-direction:column;gap:10px;flex:1}
+.item h3{font-size:18px}
+.item p{color:var(--muted);font-size:15px;flex:1}
+.item .cta{justify-content:center}
+
+/* блок с формой-подсказкой */
+.ask{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.ask .cut{min-height:380px}
+.panel{background:var(--deep);color:#fff;border-radius:var(--r);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.panel h3{font-size:clamp(22px,2.4vw,30px)}
+.panel p{color:#c7d4ff}
+.panel ol{display:grid;gap:10px;list-style:none;counter-reset:s}
+.panel li{counter-increment:s;display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.08);border-radius:16px;padding:12px 14px}
+.panel li::before{content:counter(s);font-family:var(--display);width:30px;height:30px;border-radius:50%;background:#fff;color:var(--deep);display:grid;place-items:center;flex:none;font-size:13px}
+
+.foot{margin-block:clamp(48px,7vw,90px) 100px;background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(24px,4vw,48px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .disp{font-size:clamp(28px,4vw,48px)}
+.foot p{color:#aab6da;margin-top:8px}
+
+@media (max-width:900px){
+  .top nav{display:none}.top .cta{margin-left:auto}
+  .who{grid-template-columns:1fr 1fr}
+  .about,.wrow,.wrow:nth-child(even),.ask{grid-template-columns:1fr}
+  .wrow:nth-child(even) .wt{order:0}
+  .wrow .cut{min-height:0;aspect-ratio:4/3}
+  .shop{grid-template-columns:1fr}
+  .hero .br{max-width:78%}
+  .hero .br p{display:none}
+}
+@media (max-width:480px){:root{--r:22px}.facts{grid-template-columns:1fr}.who .tab{font-size:12px}}
+</style></head><body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#"><i>Ш</i>Шуршу</a><nav><a href="#who">Для кого</a><a href="#about">О песке</a><a href="#why">Почему мы</a><a href="#shop">Цены</a></nav><a class="cta" href="zakaz.html">Заказать</a></header>
+
+  <div class="hero"><div class="cut">
+    <img src="img/hero.jpg" alt="Шиншилла купается в песке" style="object-position:72% 50%">
+    <div class="tab tl"><h1>Песок для<br>купания</h1></div>
+    <div class="tab br"><p><b>Шуршу</b>: мелкий кварцевый песок для шиншилл, дегу, хомяков и песчанок. Не пылит, промыт и прокалён.</p><a class="cta" href="#shop">Выбрать объём →</a></div>
+  </div></div>
+
+  <h2 class="pillh" id="who">Для кого</h2>
+  <div class="who">
+    <div class="cut"><img src="img/chin.jpg" alt="Шиншилла"><div class="tab br">Шиншилла</div></div>
+    <div class="cut"><img src="img/s2.jpg" alt="Дегу"><div class="tab br">Дегу</div></div>
+    <div class="cut"><img src="img/s3.jpg" alt="Хомяк"><div class="tab br">Хомяк</div></div>
+    <div class="cut"><img src="img/clean.jpg" alt="Песчанка"><div class="tab br">Песчанка</div></div>
+  </div>
+
+  <h2 class="pillh" id="about">О песке</h2>
+  <div class="about">
+    <div class="cut" style="aspect-ratio:1"><img src="img/macro.jpg" alt="Зёрна песка под увеличением"><div class="tab tl disp" style="font-size:15px;padding:12px 18px 12px 16px">Под микроскопом</div></div>
+    <div>
+      <h2>Зёрна гладкие, как галька</h2>
+      <p>Песок промывают и прокаливают. Под увеличением видно: зёрна окатанные, без острых граней. Они не царапают кожу и не ломают шерсть, а мелкая фракция проникает до самой кожи.</p>
+      <div class="facts"><div><b>0,1–0,3</b><span>мм, размер зерна</span></div><div><b>2 см</b><span>слой в купалке</span></div><div><b>15–20</b><span>минут купания</span></div></div>
+    </div>
+  </div>
+
+  <h2 class="pillh" id="why">Почему Шуршу</h2>
+  <div class="why">
+    <div class="wrow"><div class="wt"><h3>Без пыли</h3><p>Насыпается ровной струйкой. Зверёк дышит легко, а мебель остаётся чистой.</p></div><div class="cut"><img src="img/dust.jpg" alt="Песок насыпают без пыли" style="object-position:50% 60%"></div></div>
+    <div class="wrow"><div class="wt"><h3>Чистый</h3><p>Насыпьте в стакан с водой: вода останется прозрачной, песок ляжет на дно.</p></div><div class="cut"><img src="img/clean.jpg" alt="Песок в стакане воды" style="object-position:50% 70%"></div></div>
+    <div class="wrow"><div class="wt"><h3>Гипоаллергенный</h3><p>Без запаха. Песок промыт и прокалён, в нём нет грязи и микробов.</p></div><div class="cut"><img src="img/who.jpg" alt="Грызуны на песке"></div></div>
+  </div>
+
+  <h2 class="pillh" id="shop">Цены с доставкой</h2>
+  <div class="shop on-paper">
+    <div class="item"><div class="cut"><img src="img/bottle.jpg" alt=""><div class="tab br">389 ₽</div></div><div class="body"><h3>Бутылка 3,2 кг</h3><p>Для одной шиншиллы или дегу. Тальк в подарок.</p><a class="cta" href="zakaz.html">Заказать</a></div></div>
+    <div class="item"><div class="cut"><img src="img/bag.jpg" alt=""><div class="tab br">699 ₽</div></div><div class="body"><h3>Мешок 8 кг</h3><p>Для нескольких зверьков. Выгоднее за килограмм.</p><a class="cta" href="zakaz.html">Заказать</a></div></div>
+    <div class="item"><div class="cut"><img src="img/s1.jpg" alt=""><div class="tab br"><s>1 398 ₽</s>1 349 ₽</div></div><div class="body"><h3>Набор 2 × 8 кг</h3><p>Два мешка с запасом на несколько месяцев.</p><a class="cta" href="zakaz.html">Заказать</a></div></div>
+  </div>
+
+  <h2 class="pillh">Как получить</h2>
+  <div class="ask">
+    <div class="cut"><img src="img/s4.jpg" alt="Песок просеивают над купалкой"></div>
+    <div class="panel"><h3>Три шага до купания</h3><p>Цена уже с доставкой до пункта выдачи Ozon.</p><ol><li>Выберите объём и оплатите на сайте</li><li>Укажите пункт выдачи Ozon рядом с домом</li><li>Заберите посылку по номеру телефона</li></ol><a class="cta w" href="zakaz.html" style="align-self:flex-start">Оформить заказ</a></div>
+  </div>
+
+  <div class="foot"><div><div class="disp">Шуршу</div><p>Кварцевый песок для купания грызунов</p></div><a class="cta w" href="zakaz.html">Заказать песок</a></div>
+</div>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

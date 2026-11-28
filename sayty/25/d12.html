@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Комикс</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 12 «Комикс»: история купания в кадрах комикса. Толстые контуры, точки-растр, облачка с репликами зверька */
+:root{--blue:#1a7af0;--deep:#0b2a9a;--sky:#9fdcff;--sand:#ffe7a8;--ink:#0a0f2a;--paper:#fff;--soft:#eaf6ff;
+--font:"Rubik",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--soft);background-image:radial-gradient(rgba(26,122,240,.18) 1.4px,transparent 1.6px);background-size:14px 14px;color:var(--ink);line-height:1.45;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.k{border:4px solid var(--ink);border-radius:14px;background:var(--paper);box-shadow:8px 8px 0 var(--ink);position:relative;overflow:hidden}
+h1,h2,h3{font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.logo{font-weight:900;font-style:italic;font-size:30px;text-decoration:none;color:var(--deep);text-shadow:3px 3px 0 var(--sky)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 24px;background:var(--sand);color:var(--ink);text-decoration:none;font-weight:900;text-transform:uppercase;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn.b{background:var(--blue);color:#fff}
+.page{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding-block:10px 30px}
+.cover{grid-column:span 6;display:grid;grid-template-columns:1fr 1.1fr;min-height:440px;background:var(--blue);color:#fff}
+.cover .t{padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;justify-content:center;gap:18px;background-image:radial-gradient(rgba(255,255,255,.2) 2px,transparent 2.4px);background-size:16px 16px}
+.cover h1{font-size:clamp(44px,6.6vw,96px);text-shadow:5px 5px 0 var(--ink);-webkit-text-stroke:2px var(--ink)}
+.cover p{font-weight:500;font-size:18px;max-width:26em}
+.cover .ph{border-left:4px solid var(--ink);position:relative}
+.cover .ph img{width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.bub{position:absolute;background:#fff;color:var(--ink);border:4px solid var(--ink);border-radius:30px;padding:12px 18px;font-weight:900;text-transform:uppercase;font-size:clamp(16px,1.8vw,22px);line-height:1.05;z-index:2;max-width:14em}
+.bub::after{content:"";position:absolute;width:22px;height:22px;background:#fff;border-right:4px solid var(--ink);border-bottom:4px solid var(--ink);transform:rotate(45deg);bottom:-14px;left:30px}
+.bub.r::after{left:auto;right:30px}
+.boom{position:absolute;z-index:2;width:130px;height:130px;display:grid;place-items:center;text-align:center;font-weight:900;font-style:italic;text-transform:uppercase;font-size:24px;color:var(--ink);background:var(--sand);clip-path:polygon(50% 0,61% 22%,85% 10%,78% 36%,100% 45%,79% 58%,90% 84%,64% 76%,50% 100%,37% 77%,10% 88%,22% 60%,0 46%,22% 36%,14% 10%,39% 22%)}
+.panel{grid-column:span 2;display:flex;flex-direction:column}
+.panel img{aspect-ratio:4/3.4;object-fit:cover;width:100%;border-bottom:4px solid var(--ink)}
+.panel .cap{padding:14px 16px 18px}
+.panel .n{display:inline-block;background:var(--ink);color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:13px;margin-bottom:8px}
+.panel h3{font-size:22px}
+.panel p{font-weight:500;margin-top:4px}
+.wide{grid-column:span 4}.narrow{grid-column:span 2}
+.wide img{aspect-ratio:16/8}
+.yel{background:var(--sand)}
+.sky{background:var(--sky)}
+.stat{display:grid;place-items:center;text-align:center;padding:24px;background-image:radial-gradient(rgba(10,15,42,.12) 1.6px,transparent 1.8px);background-size:12px 12px}
+.stat b{font-size:clamp(54px,6vw,84px);font-weight:900;line-height:.9;color:var(--deep)}
+.stat span{font-weight:700;text-transform:uppercase;margin-top:8px}
+.sh{text-align:center;margin:40px 0 20px}
+.sh h2{font-size:clamp(34px,5vw,64px);display:inline-block;background:var(--paper);border:4px solid var(--ink);padding:8px 22px;border-radius:12px;box-shadow:6px 6px 0 var(--ink);transform:rotate(-1.5deg)}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.item{display:flex;flex-direction:column}
+.item img{aspect-ratio:1;object-fit:cover;width:100%;border-bottom:4px solid var(--ink)}
+.item .c{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.item h3{font-size:22px}
+.item p{font-weight:500;flex:1}
+.item .pr{font-size:34px;font-weight:900;color:var(--deep)}
+.item .pr s{font-size:16px;color:#6a7190;font-weight:700;margin-right:6px}
+.item .stick{position:absolute;top:12px;right:12px;background:var(--sand);border:3px solid var(--ink);border-radius:999px;padding:4px 12px;font-weight:900;font-size:13px;text-transform:uppercase;transform:rotate(6deg)}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+.qa .k{padding:18px 20px}
+.qa b{font-weight:900;text-transform:uppercase;display:block;margin-bottom:6px}
+.end{text-align:center;padding-block:40px 120px}
+@media (max-width:860px){.cover{grid-template-columns:1fr}.cover .ph{border-left:0;border-top:4px solid var(--ink);min-height:320px}.panel,.wide,.narrow{grid-column:span 6}.shop,.qa{grid-template-columns:1fr}.boom{width:96px;height:96px;font-size:17px}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style></head><body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#">ШУРШУ!</a><a class="btn b" href="zakaz.html">Заказать</a></header>
+  <div class="page">
+    <div class="k cover">
+      <div class="t"><h1>Шурш-шурш!</h1><p>Песок для купания шиншилл, дегу, хомяков, песчанок и слепушонок. Без пыли, промыт и прокалён.</p><div><a class="btn" href="#shop">Выбрать объём</a></div></div>
+      <div class="ph"><img src="img/hero.jpg" alt="Шиншилла купается в песке"><div class="bub" style="left:18px;top:18px">Сейчас пошуршу!</div><div class="boom" style="right:16px;bottom:16px">Шурш!</div></div>
+    </div>
+
+    <div class="k panel"><img src="img/dust.jpg" alt="Песок насыпают без пыли" style="object-position:50% 60%"><div class="cap"><span class="n">Кадр 1</span><h3>Насыпаем</h3><p>Ровная струйка, никакой пыли. Слой 2 см.</p></div><div class="bub r" style="right:14px;top:14px;font-size:15px">Пыли нет!</div></div>
+    <div class="k panel"><img src="img/s2.jpg" alt="Дегу купается"><div class="cap"><span class="n">Кадр 2</span><h3>Купаемся</h3><p>15–20 минут катаемся и встряхиваемся.</p></div><div class="boom" style="right:10px;top:10px;width:100px;height:100px;font-size:18px">Вжух!</div></div>
+    <div class="k panel"><img src="img/s4.jpg" alt="Песок просеивают"><div class="cap"><span class="n">Кадр 3</span><h3>Убираем</h3><p>Купалку убрать, песок просеять и снова в дело.</p></div></div>
+
+    <div class="k panel wide sky"><img src="img/clean.jpg" alt="Песок в стакане воды" style="object-position:50% 65%"><div class="cap"><span class="n">Проверка</span><h3>Стакан воды</h3><p>Песок промыт и прокалён: ложится на дно, вода прозрачная.</p></div><div class="bub" style="left:18px;top:18px">Чисто!</div></div>
+    <div class="k narrow yel stat"><div><b>0,1–0,3</b><span>мм — мелкое и гладкое зерно</span></div></div>
+  </div>
+
+  <div class="sh" id="shop"><h2>Хватай песок</h2></div>
+  <div class="shop">
+    <div class="k item"><span class="stick">тальк в подарок</span><img src="img/bottle.jpg" alt=""><div class="c"><h3>Бутылка 3,2 кг</h3><p>Одной шиншилле надолго.</p><span class="pr">389 ₽</span><a class="btn b" href="zakaz.html">В заказ</a></div></div>
+    <div class="k item"><span class="stick">выгодно</span><img src="img/bag.jpg" alt=""><div class="c"><h3>Мешок 8 кг</h3><p>Самый выгодный килограмм.</p><span class="pr">699 ₽</span><a class="btn b" href="zakaz.html">В заказ</a></div></div>
+    <div class="k item"><span class="stick">запас</span><img src="img/who.jpg" alt=""><div class="c"><h3>Набор 2 × 8 кг</h3><p>Для нескольких зверьков.</p><span class="pr"><s>1 398</s>1 349 ₽</span><a class="btn b" href="zakaz.html">В заказ</a></div></div>
+  </div>
+  <p style="text-align:center;font-weight:700;margin-top:18px">Цена уже с доставкой до пункта выдачи Ozon</p>
+
+  <div class="sh"><h2>Вопросики</h2></div>
+  <div class="qa">
+    <div class="k"><b>Почему блестит?</b>Это кварц. Зёрна полупрозрачные и на свету блестят.</div>
+    <div class="k"><b>Что за пакетик?</b>В бутылке 3,2 кг — тальк, наш подарок.</div>
+    <div class="k"><b>А водой можно?</b>Нет! Густая шерсть долго сохнет, зверёк простынет.</div>
+    <div class="k"><b>Как забрать?</b>Оплатите на сайте и заберите в пункте выдачи Ozon.</div>
+  </div>
+  <div class="end"><a class="btn b" href="zakaz.html">Оформить заказ</a></div>
+</div>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

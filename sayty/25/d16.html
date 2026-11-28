@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Магазин</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 16 «Магазин»: удобный интернет-магазин. Баннер, товары с кнопками «−/+», корзина сбоку сразу считает сумму */
+:root{--bg:#f3f6fb;--card:#fff;--ink:#0d1a3a;--muted:#66748f;--line:#e2e8f2;--blue:#1565e8;--deep:#0a2e9e;--sky:#8adcfe;--sand:#f6e7c4;--ok:#11a36a;
+--font:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--card)}
+.head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+.head .wrap{display:flex;align-items:center;gap:18px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.03em}
+.logo i{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--sky),var(--blue));display:block}
+.search{flex:1;max-width:520px;display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:14px;padding:0 16px;height:46px;color:var(--muted);font-size:15px}
+.cartbtn{margin-left:auto;display:flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border:0;border-radius:14px;height:46px;padding:0 18px;font:700 15px var(--font);cursor:pointer;text-decoration:none}
+.cartbtn b{background:#fff;color:var(--blue);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px;padding:0 6px}
+.banner{margin-top:18px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(100deg,var(--deep),var(--blue) 55%,var(--sky));color:#fff;display:grid;grid-template-columns:1.1fr 1fr;min-height:320px}
+.banner .t{padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;justify-content:center;gap:14px}
+.banner h1{font-size:clamp(32px,4.4vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.banner p{opacity:.9;max-width:30em}
+.banner .badge{align-self:flex-start;background:var(--sand);color:var(--ink);font-weight:800;border-radius:10px;padding:6px 12px;font-size:14px}
+.banner img{width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.chips span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+.chips span:first-child{background:var(--ink);color:#fff;border-color:var(--ink)}
+.layout{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:18px;align-items:start}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.p{background:var(--card);border-radius:22px;padding:12px;display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);transition:box-shadow .2s}
+.p:hover{box-shadow:0 14px 34px rgba(13,26,58,.08)}
+.p .im{position:relative;border-radius:16px;overflow:hidden;background:var(--bg)}
+.p .im img{aspect-ratio:1;object-fit:cover;width:100%}
+.p .lab{position:absolute;left:10px;top:10px;background:#fff;border-radius:8px;padding:4px 9px;font-size:12px;font-weight:700}
+.p .lab.sale{background:#ff5a5f;color:#fff}
+.p .price{font-size:24px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:baseline;gap:8px}
+.p .price s{font-size:14px;color:var(--muted);font-weight:500}
+.p h3{font-size:16px;font-weight:700}
+.p .d{font-size:14px;color:var(--muted);flex:1}
+.p .stars{font-size:13px;color:var(--muted)}
+.step{display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-radius:14px;height:48px;padding:4px}
+.step button{width:40px;height:40px;border-radius:10px;border:0;background:#fff;font:700 20px var(--font);cursor:pointer;color:var(--ink)}
+.step span{font-weight:700}
+.add{height:48px;border-radius:14px;border:0;background:var(--blue);color:#fff;font:700 15px var(--font);cursor:pointer}
+.cart{position:sticky;top:calc(env(safe-area-inset-top,0px) + 90px);background:var(--card);border-radius:22px;border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:14px}
+.cart h2{font-size:20px;font-weight:800}
+.empty{color:var(--muted);font-size:14px}
+.ci{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;font-size:14px}
+.ci img{width:48px;height:48px;border-radius:10px;object-fit:cover}
+.ci b{display:block}
+.ci span{color:var(--muted)}
+.sum{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.sum b{font-size:28px;font-weight:800;letter-spacing:-.03em}
+.go{display:flex;align-items:center;justify-content:center;height:54px;border-radius:14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+.go[aria-disabled="true"]{opacity:.35;pointer-events:none}
+.perks{display:grid;gap:10px;font-size:14px;color:var(--muted)}
+.perks div{display:flex;gap:10px;align-items:center}
+.perks i{width:22px;height:22px;border-radius:50%;background:#e4f7ee;color:var(--ok);display:grid;place-items:center;font-style:normal;font-size:12px;flex:none}
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.inf{background:var(--card);border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.inf img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.inf div{padding:14px 16px 18px}
+.inf b{display:block;font-size:17px}
+.inf span{font-size:14px;color:var(--muted)}
+.faq{background:var(--card);border-radius:22px;border:1px solid var(--line);margin-block:28px 120px;padding:8px 20px}
+.faq details{border-bottom:1px solid var(--line);padding-block:16px}
+.faq details:last-child{border-bottom:0}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--blue);font-size:20px;line-height:1}
+.faq p{color:var(--muted);margin-top:8px}
+@media (max-width:1000px){.layout{grid-template-columns:1fr}.cart{position:static}.info{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.search{display:none}.prods{grid-template-columns:1fr 1fr}.banner{grid-template-columns:1fr}.banner img{max-height:240px}.p .d{display:none}}
+@media (max-width:420px){.prods{grid-template-columns:1fr}.info{grid-template-columns:1fr}}
+</style></head><body>
+<header class="head"><div class="wrap"><a class="logo" href="#"><i></i>Шуршу</a><div class="search">⌕ Песок для шиншилл, дегу, хомяков…</div><a class="cartbtn" href="#cart">Корзина <b id="cnt">0</b></a></div></header>
+<div class="wrap">
+  <div class="banner"><div class="t"><span class="badge">Набор 2 × 8 кг дешевле на 49 ₽</span><h1>Песок для купания грызунов</h1><p>Без пыли, промыт и прокалён. Доставка в пункт выдачи Ozon уже в цене.</p></div><img src="img/hero.jpg" alt="Шиншилла купается"></div>
+  <div class="chips"><span>Все товары</span><span>Шиншиллы</span><span>Дегу</span><span>Хомяки</span><span>Песчанки</span></div>
+  <div class="layout">
+    <div class="prods" id="prods"></div>
+    <aside class="cart" id="cart"><h2>Корзина</h2><div id="items"><p class="empty">Пока пусто. Добавьте песок слева.</p></div><div class="sum"><span>Итого с доставкой</span><b id="total">0 ₽</b></div><a class="go" id="go" href="zakaz.html" aria-disabled="true">Оформить заказ</a>
+      <div class="perks"><div><i>✓</i>Доставка в пункт выдачи Ozon</div><div><i>✓</i>Оплата на сайте</div><div><i>✓</i>Тальк в подарок к бутылке</div></div></aside>
+  </div>
+  <div class="info">
+    <div class="inf"><img src="img/dust.jpg" alt=""><div><b>Без пыли</b><span>Сыплется ровной струйкой</span></div></div>
+    <div class="inf"><img src="img/clean.jpg" alt="" style="object-position:50% 70%"><div><b>Чистый</b><span>Промыт и прокалён</span></div></div>
+    <div class="inf"><img src="img/macro.jpg" alt=""><div><b>Мягкий</b><span>Зёрна 0,1–0,3 мм</span></div></div>
+    <div class="inf"><img src="img/s4.jpg" alt=""><div><b>Как купать</b><span>Слой 2 см, 15–20 минут</span></div></div>
+  </div>
+  <div class="faq">
+    <details><summary>Как я получу заказ?</summary><p>Оплачиваете на сайте, указываете пункт выдачи Ozon и забираете посылку по номеру телефона.</p></details>
+    <details><summary>Почему песок блестит?</summary><p>Это кварц. Зёрна полупрозрачные и на свету слегка блестят.</p></details>
+    <details><summary>Что за пакетик в бутылке 3,2 кг?</summary><p>Это тальк, наш подарок к песку.</p></details>
+    <details><summary>Как часто купать?</summary><p>2–3 раза в неделю по 15–20 минут. Потом купалку убрать.</p></details>
+  </div>
+</div>
+<script>
+(()=>{const P=[{id:'3.2',n:'Песок Шуршу, бутылка 3,2 кг',d:'Одному зверьку надолго. Тальк в подарок.',p:389,i:'img/bottle.jpg',l:'Хит'},
+{id:'8',n:'Песок Шуршу, мешок 8 кг',d:'Самый выгодный килограмм.',p:699,i:'img/bag.jpg',l:'Выгодно'},
+{id:'8x2',n:'Набор: 2 мешка по 8 кг',d:'Запас для нескольких зверьков.',p:1349,o:1398,i:'img/s1.jpg',l:'−49 ₽',s:1}];
+const q={};const f=n=>n.toLocaleString('ru-RU')+' ₽';const box=document.getElementById('prods');
+function render(){box.innerHTML=P.map(x=>`<div class="p"><div class="im"><img src="${x.i}" alt=""><span class="lab${x.s?' sale':''}">${x.l}</span></div><div class="price">${f(x.p)}${x.o?`<s>${f(x.o)}</s>`:''}</div><h3>${x.n}</h3><p class="d">${x.d}</p>${q[x.id]?`<div class="step"><button type="button" data-m="${x.id}" aria-label="Меньше">−</button><span>${q[x.id]} шт</span><button type="button" data-p="${x.id}" aria-label="Больше">+</button></div>`:`<button class="add" type="button" data-p="${x.id}">В корзину</button>`}</div>`).join('');
+const it=P.filter(x=>q[x.id]);document.getElementById('items').innerHTML=it.length?it.map(x=>`<div class="ci"><img src="${x.i}" alt=""><div><b>${x.n.replace('Песок Шуршу, ','')}</b><span>${q[x.id]} × ${f(x.p)}</span></div><b>${f(q[x.id]*x.p)}</b></div>`).join(''):'<p class="empty">Пока пусто. Добавьте песок слева.</p>';
+const tot=it.reduce((s,x)=>s+q[x.id]*x.p,0),c=it.reduce((s,x)=>s+q[x.id],0);document.getElementById('total').textContent=f(tot);document.getElementById('cnt').textContent=c;document.getElementById('go').setAttribute('aria-disabled',c?'false':'true')}
+box.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.p)q[b.dataset.p]=(q[b.dataset.p]||0)+1;if(b.dataset.m)q[b.dataset.m]=Math.max(0,(q[b.dataset.m]||0)-1);render()});
+q['8']=1;render()})();
+</script>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

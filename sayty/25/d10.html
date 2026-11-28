@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Шуршу — Лаборатория</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter+Tight:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Дизайн 10 «Лаборатория»: песок как научный продукт. Белые листы с сеткой, моноширинный шрифт как в протоколе, живая лупа над зёрнами */
+:root{--bg:#f7fafd;--grid:#e3ebf5;--ink:#0b1a3a;--muted:#5f6f8f;--blue:#0b5fe0;--deep:#082e8f;--cyan:#38c4ff;--white:#fff;
+--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;--font:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg) ;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1,h2{font-weight:700;letter-spacing:-.04em;line-height:.98}
+.top{display:flex;align-items:center;gap:20px;padding-block:18px;border-bottom:1px solid var(--ink)}
+.logo{font-weight:700;font-size:22px;text-decoration:none;margin-right:auto;letter-spacing:-.03em}
+.logo sup{font-family:var(--mono);font-size:11px;color:var(--blue);margin-left:4px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;background:var(--ink);color:#fff;text-decoration:none;font-family:var(--mono);font-size:14px;text-transform:uppercase;letter-spacing:.06em;border-radius:4px;transition:background .2s}
+.btn:hover{background:var(--blue)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);padding-block:clamp(36px,6vw,72px);align-items:center}
+.hero h1{font-size:clamp(46px,6.6vw,96px)}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{font-size:18px;color:var(--muted);margin:22px 0 28px;max-width:30em}
+.lens-box{position:relative;border-radius:8px;overflow:hidden;cursor:none;border:1px solid var(--ink);background:#000;touch-action:none}
+.lens-box img{width:100%;aspect-ratio:1;object-fit:cover;filter:saturate(.95)}
+.lens{position:absolute;width:180px;height:180px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--ink),0 20px 40px rgba(0,0,0,.35);background-image:url(img/macro.jpg);background-repeat:no-repeat;pointer-events:none;left:50%;top:50%;transform:translate(-50%,-50%)}
+.lens::after{content:"×3";position:absolute;right:16px;bottom:14px;font-family:var(--mono);font-size:12px;color:#fff;text-shadow:0 1px 4px #000}
+.lens-cap{display:flex;justify-content:space-between;gap:12px;margin-top:10px}
+.sheet{background:var(--white);border:1px solid var(--ink);border-radius:8px}
+.spec{display:grid;grid-template-columns:repeat(4,1fr)}
+.spec div{padding:22px;border-right:1px solid var(--grid)}
+.spec div:last-child{border-right:0}
+.spec b{display:block;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.04em;margin-top:8px;line-height:1}
+.spec span{color:var(--muted);font-size:14px}
+section{padding-block:clamp(48px,7vw,90px)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sh h2{font-size:clamp(32px,4.4vw,58px)}
+.tests{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.test{background:#fff;border:1px solid var(--ink);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.test img{aspect-ratio:4/3;object-fit:cover;width:100%;border-bottom:1px solid var(--ink)}
+.test div{padding:18px;display:grid;gap:8px}
+.test h3{font-size:22px;letter-spacing:-.02em}
+.test p{color:var(--muted);font-size:15px}
+.res{font-family:var(--mono);font-size:12px;display:inline-flex;align-items:center;gap:8px;color:#0a7a46;text-transform:uppercase}
+.res::before{content:"";width:8px;height:8px;border-radius:50%;background:#14b866}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th,td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+td b{font-weight:500}
+.tbl{overflow-x:auto}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pd{background:#fff;border:1px solid var(--ink);border-radius:8px;display:flex;flex-direction:column}
+.pd img{aspect-ratio:1;object-fit:cover;width:100%;border-bottom:1px solid var(--ink);border-radius:8px 8px 0 0}
+.pd .b{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pd .r{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pd h3{font-size:22px;letter-spacing:-.02em}
+.pd strong{font-size:26px;letter-spacing:-.03em;color:var(--blue)}
+.pd s{font-size:14px;color:var(--muted);font-weight:400;margin-right:6px}
+.pd p{color:var(--muted);font-size:15px;flex:1}
+.pd .btn{justify-content:center}
+.note{margin-top:14px}
+footer{padding-block:30px 120px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:860px){.hero,.tests,.prods{grid-template-columns:1fr}.spec{grid-template-columns:1fr 1fr}.spec div:nth-child(2){border-right:0}.spec div:nth-child(-n+2){border-bottom:1px solid var(--grid)}.lens{width:130px;height:130px}.top .mono{display:none}}
+</style></head><body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#">Шуршу<sup>SiO₂</sup></a><span class="mono">Протокол песка для купания</span><a class="btn" href="zakaz.html">Заказать</a></header>
+  <div class="hero">
+    <div><p class="mono">Образец № 1 · кварцевый песок</p><h1>Посмотрите на песок <em>поближе</em></h1><p>Шуршу промывают и прокаливают. Зёрна окатанные, без острых граней: не царапают кожу шиншиллы, дегу, хомяка или песчанки.</p><a class="btn" href="#shop">Выбрать объём →</a></div>
+    <div><div class="lens-box" id="lb"><img src="img/macro.jpg" alt="Зёрна кварцевого песка под увеличением"><div class="lens" id="lens"></div></div><div class="lens-cap"><span class="mono">Водите лупой по фото</span><span class="mono">Фракция 0,1–0,3 мм</span></div></div>
+  </div>
+  <div class="sheet spec">
+    <div><span class="mono">Зерно</span><b>0,1–0,3</b><span>мм, мелкая фракция</span></div>
+    <div><span class="mono">Слой</span><b>2 см</b><span>в купалке</span></div>
+    <div><span class="mono">Время</span><b>15–20</b><span>минут купания</span></div>
+    <div><span class="mono">Частота</span><b>2–3</b><span>раза в неделю</span></div>
+  </div>
+
+  <section>
+    <div class="sh"><h2>Три проверки</h2><span class="mono">Результат: пройдено</span></div>
+    <div class="tests">
+      <div class="test"><img src="img/dust.jpg" alt="Песок насыпают"><div><span class="mono">Тест 01 · пыль</span><h3>Насыпаем струйкой</h3><p>Облака пыли нет. Зверёк дышит легко, мебель чистая.</p><span class="res">Без пыли</span></div></div>
+      <div class="test"><img src="img/clean.jpg" alt="Песок в воде" style="object-position:50% 65%"><div><span class="mono">Тест 02 · чистота</span><h3>Стакан воды</h3><p>Песок ложится на дно, а вода остаётся прозрачной.</p><span class="res">Чистый</span></div></div>
+      <div class="test"><img src="img/macro.jpg" alt="Зёрна"><div><span class="mono">Тест 03 · форма</span><h3>Под увеличением</h3><p>Зёрна окатанные, как галька. Не ломают шерсть.</p><span class="res">Мягкий</span></div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="sh"><h2>Кому подходит</h2><span class="mono">Сухое купание</span></div>
+    <div class="sheet tbl"><table>
+      <thead><tr><th>Зверёк</th><th>Зачем песок</th><th>Какой объём взять</th></tr></thead>
+      <tbody>
+        <tr><td><b>Шиншилла</b></td><td>Густая шерсть, мыть водой нельзя</td><td>3,2 кг или 8 кг</td></tr>
+        <tr><td><b>Дегу</b></td><td>Чистит шёрстку и кожу от жира</td><td>3,2 кг</td></tr>
+        <tr><td><b>Хомяк, песчанка</b></td><td>Купаются как в природе</td><td>3,2 кг</td></tr>
+        <tr><td><b>Несколько зверьков</b></td><td>Песка уходит больше</td><td>8 кг или набор 2 × 8 кг</td></tr>
+      </tbody></table></div>
+  </section>
+
+  <section id="shop" style="padding-top:0">
+    <div class="sh"><h2>Заказать</h2><span class="mono">Цена с доставкой до пункта Ozon</span></div>
+    <div class="prods">
+      <div class="pd"><img src="img/bottle.jpg" alt=""><div class="b"><span class="mono">Бутылка</span><div class="r"><h3>3,2 кг</h3><strong>389 ₽</strong></div><p>Тальк в подарок.</p><a class="btn" href="zakaz.html">В заказ</a></div></div>
+      <div class="pd"><img src="img/bag.jpg" alt=""><div class="b"><span class="mono">Мешок</span><div class="r"><h3>8 кг</h3><strong>699 ₽</strong></div><p>Самый выгодный килограмм.</p><a class="btn" href="zakaz.html">В заказ</a></div></div>
+      <div class="pd"><img src="img/s1.jpg" alt=""><div class="b"><span class="mono">Набор</span><div class="r"><h3>2 × 8 кг</h3><strong><s>1 398</s>1 349 ₽</strong></div><p>Запас для нескольких зверьков.</p><a class="btn" href="zakaz.html">В заказ</a></div></div>
+    </div>
+    <p class="mono note">Почему блестит? Это кварц: зёрна полупрозрачные. Пакетик в бутылке 3,2 кг — тальк в подарок.</p>
+  </section>
+  <footer><b>Шуршу</b><span class="mono">Кварцевый песок для купания грызунов</span></footer>
+</div>
+<script>
+(()=>{const b=document.getElementById('lb'),l=document.getElementById('lens'),Z=3;
+function mv(x,y){const r=b.getBoundingClientRect();x=Math.max(0,Math.min(r.width,x-r.left));y=Math.max(0,Math.min(r.height,y-r.top));l.style.left=x+'px';l.style.top=y+'px';const w=l.offsetWidth/2;l.style.backgroundSize=(r.width*Z)+'px '+(r.height*Z)+'px';l.style.backgroundPosition=(-x*Z+w)+'px '+(-y*Z+w)+'px'}
+b.addEventListener('pointermove',e=>mv(e.clientX,e.clientY));
+const init=()=>{const r=b.getBoundingClientRect();mv(r.left+r.width*.3,r.top+r.height*.62)};addEventListener('load',init);addEventListener('resize',init);init()})();
+</script>
+<nav class="dsw" aria-label="Варианты дизайна"><a href="index.html">Все</a><a id="dsw-p" href="#" aria-label="Предыдущий">←</a><span id="dsw-n"></span><a id="dsw-x" href="#" aria-label="Следующий">→</a></nav>
+<style>[hidden]{display:none!important}.dsw{position:fixed;z-index:99;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(8,20,60,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 14px/1 "Onest",system-ui,sans-serif;color:#fff}.dsw a{color:#fff;text-decoration:none;min-width:38px;height:36px;display:grid;place-items:center;border-radius:999px;padding:0 12px}.dsw a:hover{background:rgba(255,255,255,.16)}.dsw span{padding:0 10px;font-variant-numeric:tabular-nums;white-space:nowrap}</style>
+<script>(()=>{const m=location.pathname.match(/d(\d+)\.html$/);const n=m?+m[1]:1,T=25;document.getElementById('dsw-n').textContent=n+' из '+T;document.getElementById('dsw-p').href='d'+(n>1?n-1:T)+'.html';document.getElementById('dsw-x').href='d'+(n<T?n+1:1)+'.html'})()</script>
+
+</body></html>

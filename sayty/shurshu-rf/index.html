@@ -1,0 +1,387 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><meta name="robots" content="noindex"><title>Шуршу — песок для купания</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Шуршу — кварцевый песок для купания шиншилл, дегу, хомяков, песчанок и слепушонок. Без пыли, промыт, термически обработан.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Шуршу: каждый экран — как слайд бренда. Голубое поле, огромный белый заголовок, стеклянная рамка, синие и белые «таблетки». */
+:root{
+  --deep:#0062c6; --mid:#1c9ef0; --light:#8adcfe;
+  --pill-a:#2a5ff0; --pill-b:#0a2ea6;
+  --ink:#0a2a8a; --white:#ffffff; --sand:#efe4d3;
+  --field:linear-gradient(100deg,var(--deep) 0%,var(--mid) 55%,var(--light) 100%);
+  --pillfill:linear-gradient(180deg,var(--pill-a),var(--pill-b));
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+  --gutR:max(20px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--deep)}
+body{font-family:var(--font);color:var(--white);background:var(--deep);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--white);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutR)}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:.95;text-wrap:balance}
+
+/* — элементы бренда — */
+.glass{display:inline-block;padding:10px;border-radius:22px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.38)}
+.glass>span{display:block;background:var(--pillfill);border-radius:14px;padding:16px 24px;font-size:clamp(19px,1.9vw,28px);line-height:1.15;letter-spacing:-.01em}
+.glass>span b{font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.pill{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;font-size:clamp(17px,1.5vw,22px);font-weight:500;letter-spacing:-.01em;background:var(--white);color:var(--ink);white-space:nowrap}
+.pill.blue{background:var(--pillfill);color:var(--white)}
+.ico{width:52px;height:52px;flex:none;border-radius:50%;background:var(--pillfill);display:grid;place-items:center;box-shadow:0 0 0 5px rgba(255,255,255,.18)}
+.ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;border-radius:999px;font:600 18px/1 var(--font);text-decoration:none;cursor:pointer;border:0;transition:transform .18s ease,background-color .18s ease}
+.btn.white{background:var(--white);color:var(--ink)}
+.btn.line{background:rgba(255,255,255,.14);color:var(--white);border:1.5px solid rgba(255,255,255,.55)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* — шапка как на макетах — */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(0,98,198,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--deep)}
+.nav{display:flex;align-items:center;gap:36px;height:72px}
+.burger{width:30px;display:grid;gap:7px;flex:none}
+.burger i{height:2px;background:rgba(255,255,255,.75);border-radius:2px}
+.nav ul{display:flex;gap:34px;list-style:none;flex:1}
+.nav ul a{text-decoration:none;font-size:17px;color:rgba(255,255,255,.72);transition:color .15s}
+.nav ul a:hover,.nav ul a.on{color:#fff}
+.brand{font-weight:600;font-size:22px;letter-spacing:-.02em;text-decoration:none;margin-right:auto}
+.heart{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.3);display:grid;place-items:center;flex:none;text-decoration:none}
+.heart svg{width:20px;height:20px;fill:#fff}
+@media (max-width:980px){.nav ul{display:none}.nav{gap:18px}}
+
+/* — первый экран — */
+.hero{position:relative;overflow:hidden;background:var(--deep)}
+.hero .photo{position:absolute;inset:0}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:72% 50%;transform-origin:70% 60%;animation:breathe 16s ease-in-out infinite alternate}
+@keyframes breathe{to{transform:scale(1.05)}}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;min-height:min(92vh,920px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding-top:60px;padding-bottom:90px}
+.hero h1{font-size:clamp(64px,10.5vw,168px);margin-bottom:34px;max-width:7.2em}
+.hero .lead{font-size:clamp(18px,1.6vw,22px);max-width:30em;margin:28px 0 34px;color:rgba(255,255,255,.95)}
+.bubble{position:absolute;right:23%;top:19%;background:#fff;color:#1468d8;font-weight:600;font-size:clamp(18px,1.6vw,24px);line-height:1.05;text-align:center;padding:18px 22px;border-radius:50%;box-shadow:0 0 0 10px rgba(255,255,255,.35);transform-origin:20% 100%;animation:pop 4s ease-in-out infinite}
+.bubble:after{content:"";position:absolute;left:14px;bottom:-12px;border:14px solid transparent;border-top-color:#fff;border-bottom:0;transform:rotate(30deg)}
+@keyframes pop{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(3deg) scale(1.06)}}
+@media (max-width:860px){
+  .hero .photo{position:relative;height:62vw;min-height:300px}
+  .hero .photo img{object-position:80% 50%}
+  .hero .photo:after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(to top,var(--deep),transparent)}
+  .hero .wrap{min-height:0;padding-top:8px;padding-bottom:64px}
+  .bubble{right:12%;top:12%}
+}
+
+/* — общие секции-слайды — */
+.slide{background:var(--field);position:relative;overflow:hidden;padding:clamp(80px,10vw,150px) 0}
+.slide h2{font-size:clamp(58px,9vw,150px);margin-bottom:34px}
+.lead2{font-size:clamp(18px,1.5vw,21px);max-width:31em;color:rgba(255,255,255,.95)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.split.flip .txt{order:2}
+.txt{display:flex;flex-direction:column;align-items:flex-start;gap:22px;min-width:0}
+.frame{border-radius:40px;overflow:hidden;position:relative;box-shadow:0 0 0 10px rgba(255,255,255,.16)}
+.frame img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.frame:hover img{transform:scale(1.03)}
+@media (max-width:860px){.split{grid-template-columns:1fr}.split.flip .txt{order:0}.frame{border-radius:28px}}
+
+/* — для кого — */
+.who h2{margin-bottom:26px}
+.who .panorama{border-radius:40px;overflow:hidden;margin-top:44px;box-shadow:0 0 0 10px rgba(255,255,255,.16);position:relative}
+.who .panorama img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pick{cursor:pointer;border:0;font-family:var(--font);transition:transform .15s,background-color .2s,color .2s}
+.pick:hover{transform:translateY(-2px)}
+.pick[aria-pressed="true"]{background:#fff;color:var(--ink)}
+.pick[aria-pressed="false"]{background:var(--pillfill);color:#fff}
+.advice{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;max-width:980px}
+.advice div{background:rgba(255,255,255,.16);border-radius:22px;padding:20px 22px}
+.advice small{display:block;font-size:15px;color:rgba(255,255,255,.8);margin-bottom:6px}
+.advice strong{font-weight:500;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em;line-height:1.1}
+@media (max-width:700px){.advice{grid-template-columns:1fr}}
+
+/* — мягкий: микроскоп — */
+.scope{position:relative;justify-self:center;width:min(100%,560px)}
+.lens{border-radius:50%;overflow:hidden;aspect-ratio:1;box-shadow:0 0 0 28px rgba(255,255,255,.28),0 0 0 29px rgba(255,255,255,.4)}
+.lens img{width:100%;height:100%;object-fit:cover;animation:drift 22s linear infinite alternate}
+@keyframes drift{from{transform:scale(1.15) translate(-3%,-2%)}to{transform:scale(1.15) translate(3%,2%)}}
+.lens-btn{position:absolute;right:4%;bottom:6%;width:96px;height:96px;border-radius:50%;background:var(--pillfill);display:grid;place-items:center;box-shadow:0 0 0 8px rgba(255,255,255,.25)}
+.lens-btn svg{width:44px;height:44px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round}
+.scope .pill{position:absolute;left:50%;bottom:-78px;transform:translateX(-50%)}
+@media (max-width:860px){.scope{margin-bottom:70px}.lens-btn{width:72px;height:72px}.lens-btn svg{width:32px;height:32px}}
+
+/* — способ применения — */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px;counter-reset:st}
+.steps li{display:flex;flex-direction:column;gap:16px}
+.steps .ph{border-radius:30px;overflow:hidden;position:relative}
+.steps .ph img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.steps li:hover .ph img{transform:scale(1.05)}
+.steps .ph:before{counter-increment:st;content:counter(st);position:absolute;left:14px;top:14px;z-index:1;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-weight:600;font-size:20px}
+.steps p{font-size:clamp(19px,1.6vw,23px);line-height:1.2;letter-spacing:-.01em}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.rule{background:rgba(255,255,255,.16);border-radius:28px;padding:26px 28px}
+.rule h3{font-size:30px;letter-spacing:-.02em;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.rule h3 i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:18px}
+.rule.yes h3 i{background:#fff;color:#1a9a50}
+.rule.no h3 i{background:#fff;color:#e0363a}
+.rule .row{gap:10px}
+.rule .pill{min-height:44px;font-size:17px;padding:0 20px}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.rules{grid-template-columns:1fr}}
+@media (max-width:440px){.steps{grid-template-columns:1fr}}
+
+/* — упаковка — */
+.packs{display:flex;flex-direction:column;gap:16px;width:100%}
+.pack{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:28px;padding:18px 18px 18px 28px;transition:background-color .2s}
+.pack:hover{background:rgba(255,255,255,.24)}
+.pack .kg{font-size:clamp(46px,5vw,72px);font-weight:500;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.pack .kg small{font-size:.38em;letter-spacing:0;margin-left:4px}
+.pack p{font-size:17px;line-height:1.35;color:rgba(255,255,255,.95)}
+.pack p b{display:block;font-weight:600;font-size:19px;margin-bottom:2px}
+.gift{display:inline-block;background:#fff;color:var(--ink);font-weight:600;font-size:14px;border-radius:99px;padding:4px 12px;margin-left:8px;vertical-align:2px}
+@media (max-width:600px){.pack{grid-template-columns:1fr;padding:22px}.pack .btn{width:100%}}
+
+/* — хранение и вопросы — */
+.store{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.store div{background:rgba(255,255,255,.16);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.store b{font-weight:500;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.store span{font-size:17px;color:rgba(255,255,255,.92)}
+@media (max-width:860px){.store{grid-template-columns:1fr}}
+.faq{margin-top:70px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.faq h3{grid-column:1/-1;font-size:clamp(40px,5vw,72px);margin-bottom:14px}
+details{background:rgba(255,255,255,.12);border-radius:22px;padding:20px 24px;transition:background-color .2s}
+details[open]{background:rgba(255,255,255,.2)}
+summary{cursor:pointer;list-style:none;font-size:19px;font-weight:500;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:26px;line-height:.9;transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{margin-top:10px;font-size:17px;color:rgba(255,255,255,.92)}
+@media (max-width:760px){.faq{grid-template-columns:1fr}}
+
+/* — финал — */
+footer{background:var(--deep);padding:70px 0 36px;overflow:hidden}
+.bigword{font-size:clamp(90px,24vw,380px);font-weight:500;letter-spacing:-.06em;line-height:.8;color:rgba(255,255,255,.95);white-space:nowrap}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:34px;font-size:16px;color:rgba(255,255,255,.8)}
+
+/* — появление: от видимого состояния — */
+.rise{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rise.wait{transform:translateY(34px)}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  .js .rise.wait{transform:none}
+}
+</style>
+
+<div class="top"><div class="wrap nav">
+  <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+  <a class="brand" href="#tovar">Шуршу</a>
+  <ul>
+    <li><a href="#tovar" class="on">Товар</a></li>
+    <li><a href="#zachem">Необходимость песка</a></li>
+    <li><a href="#kak">Способ применения</a></li>
+    <li><a href="#upakovka">Упаковка</a></li>
+    <li><a href="#hranenie">Хранение</a></li>
+  </ul>
+  <a class="heart" href="#upakovka" aria-label="Купить"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg></a>
+</div></div>
+
+<header class="hero" id="tovar">
+  <div class="photo"><img src="img/hero.jpg" alt="Шиншилла купается в белой купалке с мелким песком, песчинки летят в воздухе" width="1536" height="864"></div>
+  <canvas id="sand" aria-hidden="true"></canvas>
+  <div class="bubble" aria-hidden="true">Шурш!</div>
+  <div class="wrap">
+    <h1>Песок для купания</h1>
+    <div class="glass"><span><b>Бережно к нему —</b><br>спокойно для Вас</span></div>
+    <p class="lead">Шуршу — мелкий кварцевый песок для шиншилл, дегу, хомяков, песчанок и слепушонок. Не пылит, промыт и термически обработан.</p>
+    <div class="row">
+      <a class="btn white" href="#upakovka">Купить на Ozon
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn line" href="#kak">Как купать</a>
+    </div>
+  </div>
+</header>
+
+<section class="slide who" id="dlya-kogo">
+  <div class="wrap">
+    <h2 class="rise">Для кого подходит?</h2>
+    <div class="row rise" role="group" aria-label="Выберите зверька">
+      <button class="pill pick" aria-pressed="true" data-k="ch">шиншилла</button>
+      <button class="pill pick" aria-pressed="false" data-k="sl">слепушонок</button>
+      <button class="pill pick" aria-pressed="false" data-k="ho">хомяк</button>
+      <button class="pill pick" aria-pressed="false" data-k="de">дегу</button>
+      <button class="pill pick" aria-pressed="false" data-k="pe">песчанка</button>
+    </div>
+    <div class="advice rise" aria-live="polite">
+      <div><small>Как часто</small><strong id="a-often">2–3 раза в неделю</strong></div>
+      <div><small>Сколько купать</small><strong id="a-time">15–20 минут</strong></div>
+      <div><small>Какой объём взять</small><strong id="a-size">бутылка 3,2 кг</strong></div>
+    </div>
+    <div class="panorama rise"><img src="img/who.jpg" alt="Шиншилла, дегу, хомяк, песчанка и слепушонок сидят на горках песка" loading="lazy" width="1536" height="864"></div>
+  </div>
+</section>
+
+<section class="slide" id="zachem">
+  <div class="wrap split">
+    <div class="txt">
+      <h2 class="rise">Без пыли</h2>
+      <div class="glass rise"><span><b>Чисто даже при</b><br>активном купании</span></div>
+      <div class="row rise"><span class="pill">гипоаллергенный</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-8 5.5 5.5 0 0 1 10.6-1.2A4.3 4.3 0 0 1 17.5 18z"/><path d="M10 13.5h4M12 11.5v4"/></svg></span></div>
+      <div class="row rise"><span class="pill blue">без запаха</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5c-2 2.5 2 4.5 0 7s2 4.5 0 7M13 5c-2 2.5 2 4.5 0 7s2 4.5 0 7M4 4l16 16"/></svg></span></div>
+      <p class="lead2 rise">Шиншиллы, дегу и песчанки не моются водой: шёрстку им чистит песок. Шуршу насыпается ровной струйкой и не поднимает облако пыли, поэтому зверёк дышит легко, а мебель остаётся чистой.</p>
+    </div>
+    <div class="frame rise"><img src="img/dust.jpg" alt="Песок ровной струйкой без пыли сыплется в купалку, рядом стоит хомяк" loading="lazy" width="960" height="1280"></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap split flip">
+    <div class="txt">
+      <h2 class="rise">Чистый</h2>
+      <div class="glass rise"><span><b>Бережно к нему —</b><br>спокойно для Вас</span></div>
+      <div class="row rise"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="9.5" cy="10" r="1.6"/><circle cx="14.5" cy="13.5" r="2"/><circle cx="10" cy="15" r=".8"/></svg></span><span class="pill">термически обработан</span></div>
+      <div class="row rise"><span class="pill blue">без микробов</span><span class="pill blue">промыт</span></div>
+      <p class="lead2 rise">Песок промывают и прокаливают. Насыпьте его в стакан с водой: вода останется прозрачной, а песок спокойно ляжет на дно.</p>
+    </div>
+    <div class="frame rise"><img src="img/clean.jpg" alt="Песчанка у стакана: песок на дне, вода прозрачная" loading="lazy" width="960" height="1280"></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap split">
+    <div class="txt">
+      <h2 class="rise">Мягкий</h2>
+      <div class="glass rise"><span><b>Округлая форма</b><br>каждой песчинки</span></div>
+      <div class="row rise"><span class="pill">безопасный</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 7.8-7 9.5-4-1.7-7-5.1-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span></div>
+      <div class="row rise"><span class="pill blue">мелкий: 0,1–0,3 мм</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="1.6"/><circle cx="7" cy="9" r="1.6"/><circle cx="17" cy="9" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="7" cy="15" r="1.6"/><circle cx="17" cy="15" r="1.6"/><circle cx="12" cy="18.5" r="1.6"/></svg></span></div>
+      <p class="lead2 rise">Под увеличением видно: зёрна окатанные, без острых граней. Такой песок не царапает кожу и не ломает шерсть, а мелкая фракция проникает до самой кожи.</p>
+    </div>
+    <div class="scope rise">
+      <div class="lens"><img src="img/macro.jpg" alt="Песчинки под микроскопом: круглые, гладкие, прозрачные" loading="lazy" width="1024" height="1024"></div>
+      <span class="lens-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span>
+      <span class="pill blue">песок под микроскопом</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="kak">
+  <div class="wrap">
+    <h2 class="rise">Способ применения</h2>
+    <ol class="steps">
+      <li class="rise"><div class="ph"><img src="img/s1.jpg" alt="Песок насыпают в белую купалку" loading="lazy" width="1024" height="1024"></div><p>Насыпьте в купалку слой 2 см</p></li>
+      <li class="rise"><div class="ph"><img src="img/s2.jpg" alt="Дегу купается в песке, катаясь на спине" loading="lazy" width="1024" height="1024"></div><p>Поставьте в клетку на 15–20 минут</p></li>
+      <li class="rise"><div class="ph"><img src="img/s3.jpg" alt="Чистый пушистый хомяк рядом с пустой купалкой" loading="lazy" width="1024" height="1024"></div><p>Уберите купалку после купания</p></li>
+      <li class="rise"><div class="ph"><img src="img/s4.jpg" alt="Песок просеивают через ситечко в миску" loading="lazy" width="1024" height="1024"></div><p>Просейте и используйте снова</p></li>
+    </ol>
+    <div class="rules">
+      <div class="rule yes rise"><h3><i>✓</i>Нужно</h3><div class="row"><span class="pill">сухой песок</span><span class="pill">слой 2 см</span><span class="pill">15–20 минут</span></div></div>
+      <div class="rule no rise"><h3><i>✕</i>Нельзя</h3><div class="row"><span class="pill blue">купать в воде</span><span class="pill blue">оставлять купалку на день</span><span class="pill blue">строительный песок</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="upakovka">
+  <div class="wrap split flip">
+    <div class="txt">
+      <h2 class="rise">Упаковка</h2>
+      <p class="lead2 rise">Прозрачная бутылка с крышкой: видно, сколько осталось, и удобно насыпать без пыли. Покупайте на Ozon.</p>
+      <div class="packs">
+        <div class="pack rise"><div class="kg">0,8<small>кг</small></div><p><b>Бутылка</b>Попробовать или купать одного хомяка</p><a class="btn white" href="https://www.ozon.ru/product/4843583934/" target="_blank" rel="noopener">На Ozon</a></div>
+        <div class="pack rise"><div class="kg">3,2<small>кг</small></div><p><b>Бутылка <span class="gift">тальк в подарок</span></b>Для шиншиллы или дегу надолго</p><a class="btn white" href="https://www.ozon.ru/product/4843600907/" target="_blank" rel="noopener">На Ozon</a></div>
+        <div class="pack rise"><div class="kg">8<small>кг</small></div><p><b>Мешок</b>Для нескольких зверьков. Выгоднее всего за килограмм</p><a class="btn white" href="https://www.ozon.ru/product/3834158056/" target="_blank" rel="noopener">На Ozon</a></div>
+      </div>
+    </div>
+    <div class="frame rise"><img src="img/bottle.jpg" alt="Прозрачная бутылка с песком и синей крышкой, рядом шиншилла" loading="lazy" width="960" height="1280"></div>
+  </div>
+</section>
+
+<section class="slide" id="hranenie">
+  <div class="wrap">
+    <h2 class="rise">Хранение</h2>
+    <div class="store">
+      <div class="rise"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5c3.5 4.2 5.5 7.3 5.5 10a5.5 5.5 0 0 1-11 0c0-2.7 2-5.8 5.5-10z"/><path d="M4 4l16 16"/></svg></span><b>В сухом месте</b><span>Влажный песок слипается и хуже чистит шерсть.</span></div>
+      <div class="rise"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="4" rx="1"/><path d="M8 7h8l1 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9z"/></svg></span><b>Крышка закрыта</b><span>Так внутрь не попадут пыль и запахи из комнаты.</span></div>
+      <div class="rise"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9h18l-2.5 6.5a3 3 0 0 1-2.8 2H8.3a3 3 0 0 1-2.8-2z"/><path d="M9 20.5h.01M12 21.5h.01M15 20.5h.01"/></svg></span><b>Просеивайте</b><span>После купания уберите комочки. Потемнел песок — насыпьте свежий.</span></div>
+    </div>
+
+    <div class="faq">
+      <h3 class="rise">Вопросы</h3>
+      <details><summary>Почему песок немного блестит?</summary><p>Это кварц. Зёрна светлые и полупрозрачные, поэтому на свету слегка блестят. Так и должно быть.</p></details>
+      <details><summary>Что за пакетик в бутылке 3,2 кг?</summary><p>Это тальк, наш подарок к песку.</p></details>
+      <details><summary>Можно ли купать шиншиллу в воде?</summary><p>Нет. Шерсть у шиншиллы густая и долго сохнет, зверёк может простыть. Ей нужен только сухой песок.</p></details>
+      <details><summary>Зачем убирать купалку?</summary><p>Иначе зверёк начнёт использовать её как туалет, а слишком частое купание сушит кожу.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="bigword" aria-hidden="true">Шуршу</div>
+    <div class="foot"><span>Кварцевый песок для купания грызунов</span><a href="#upakovka">Купить на Ozon</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* выбор зверька */
+  var data={
+    ch:['2–3 раза в неделю','15–20 минут','бутылка 3,2 кг'],
+    de:['2–3 раза в неделю','15–20 минут','бутылка 3,2 кг'],
+    ho:['1–2 раза в неделю','15–20 минут','бутылка 0,8 кг'],
+    pe:['1–2 раза в неделю','15–20 минут','бутылка 0,8 кг'],
+    sl:['1–2 раза в неделю','15–20 минут','бутылка 0,8 кг']
+  };
+  var picks=document.querySelectorAll('.pick');
+  picks.forEach(function(b){b.addEventListener('click',function(){
+    picks.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var d=data[b.dataset.k];
+    document.getElementById('a-often').textContent=d[0];
+    document.getElementById('a-time').textContent=d[1];
+    document.getElementById('a-size').textContent=d[2];
+  })});
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* подъём блоков при прокрутке: всё видно и без скрипта */
+  document.documentElement.classList.add('js');
+  if('IntersectionObserver' in window && !reduce){
+    var vh=window.innerHeight;
+    var els=[].slice.call(document.querySelectorAll('.rise')).filter(function(el){return el.getBoundingClientRect().top>vh});
+    els.forEach(function(el){el.classList.add('wait')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){
+        var sib=[].slice.call(e.target.parentNode.children).filter(function(x){return x.classList.contains('rise')});
+        e.target.style.transitionDelay=(Math.max(0,sib.indexOf(e.target))*70)+'ms';
+        e.target.classList.remove('wait');io.unobserve(e.target);
+      }})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }
+
+  /* песчинки в первом экране: разлетаются от курсора — «шурш» */
+  var c=document.getElementById('sand');if(!c||reduce)return;
+  var x=c.getContext('2d'),W,H,dpr=Math.min(2,window.devicePixelRatio||1),P=[],mx=-999,my=-999;
+  function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  function spawn(p){p=p||{};p.x=W*(.55+Math.random()*.4);p.y=Math.random()*H*.9;p.vx=(Math.random()-.5)*.25;p.vy=.15+Math.random()*.45;p.r=.6+Math.random()*1.8;p.a=.35+Math.random()*.55;return p}
+  size();for(var i=0;i<140;i++)P.push(spawn());
+  window.addEventListener('resize',size);
+  c.parentNode.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+  c.parentNode.addEventListener('pointerleave',function(){mx=my=-999});
+  var run=true;new IntersectionObserver(function(e){run=e[0].isIntersecting;if(run)tick()}).observe(c);
+  function tick(){
+    if(!run)return;x.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){var p=P[i],dx=p.x-mx,dy=p.y-my,d=dx*dx+dy*dy;
+      if(d<14000){var f=(14000-d)/14000*1.6;p.vx+=dx/Math.sqrt(d+1)*f;p.vy+=dy/Math.sqrt(d+1)*f}
+      p.vx*=.94;p.vy=p.vy*.94+.03;p.x+=p.vx;p.y+=p.vy;
+      if(p.y>H||p.x<0||p.x>W)spawn(p),p.y=-5;
+      x.globalAlpha=p.a;x.fillStyle='#fff6e8';x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill()}
+    requestAnimationFrame(tick)}
+  tick();
+})();
+</script>
+</body></html>
